@@ -1,0 +1,164 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background: #f4f6fb;
+    color: #263a5e;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+main {
+    background: transparent;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.dashboard-welcome {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(25,118,210,0.10);
+    padding: 32px 32px 24px 32px;
+    margin-bottom: 32px;
+}
+
+.dashboard-welcome h3 {
+    color: #1976d2;
+    font-weight: 700;
+}
+
+.dashboard-welcome p {
+    color: #4a6fa5;
+    font-size: 1.1em;
+}
+
+.dashboard-cards .card {
+    border: none;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px rgba(25,118,210,0.10);
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: #fff;
+    height: 230px;
+    min-height: 230px;
+    max-height: 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.dashboard-cards .card-body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 90px;
+}
+
+.dashboard-cards .card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 8px 32px rgba(25,118,210,0.18);
+}
+
+.dashboard-cards .card img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.dashboard-cards .card-title {
+    color: #1976d2;
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+.dashboard-cards .card-text b {
+    color: #1976d2;
+    font-size: 2em;
+}
+
+.dashboard-quote {
+    background: linear-gradient(90deg, #1976d2 0%, #63a4ff 100%);
+    color: #fff;
+    border-radius: 18px;
+    padding: 30px 24px;
+    margin-top: 32px;
+    box-shadow: 0 2px 12px rgba(25,118,210,0.10);
+    font-size: 1.2em;
+}
+
+#carouselA img {
+    height: 700px;
+    border-radius: 15px;
+    box-shadow: 0 6px 16px rgba(25, 118, 210, 0.15);
+    object-fit: cover;
+}
+
+.horario-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    background: #fff;
+}
+
+.horario-table thead {
+    background: linear-gradient(90deg, #1976d2 0%, #63a4ff 100%);
+    color: white;
+}
+
+.horario-table th,
+.horario-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid #e0e9ff;
+}
+
+.horario-table th {
+    font-weight: 600;
+}
+
+.horario-table tbody tr:nth-child(even) {
+    background-color: #f5f9ff;
+}
+
+.horario-table tbody tr:hover {
+    background-color: #e6f0ff;
+}
+
+.btn-light {
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+
+.btn-danger {
+    background: linear-gradient(90deg, #ff5252 0%, #ff1744 100%);
+    border: none;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(90deg, #ff1744 0%, #ff5252 100%);
+}
+
+.horario-title {
+    color: #1976d2;
+    font-size: 2em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 0.5em;
+    position: relative;
+}
+.horario-title::after {
+    content: "";
+    display: block;
+    height: 4px;
+    width: 60px;
+    background: linear-gradient(90deg, #1976d2 0%, #63a4ff 100%);
+    border-radius: 2px;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+}

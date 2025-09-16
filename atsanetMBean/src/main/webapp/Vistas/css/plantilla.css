@@ -1,0 +1,145 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Roboto', sans-serif;
+    background: f4f6fb;
+    color: #0d1c41;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+.grid-container>* {
+    padding: 10px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template:
+        "navbar" auto
+        "contenido" auto
+        "pie" 190px
+    ;
+
+    .navbar {
+        grid-area: navbar;
+        background: linear-gradient(90deg, #1976d2, #63a4ff);
+        padding: 30px;
+    }
+
+    .contenido {
+        grid-area: contenido;
+        background: #f4f6fb;
+        color: white;
+    }
+
+    .pie {
+        grid-area: pie;
+        background: linear-gradient(90deg, #1976d2, #63a4ff);
+        text-align: center;
+        font-size: 14px;
+        padding: 30px;
+        color: white;
+    }
+
+    @media (min-width:768px) {
+        grid-template:
+            "navbar" auto
+            "contenido" auto
+            "pie" 140px/
+            auto;
+        ;
+    }
+
+    @media (min-width:992px) {
+        grid-template:
+            "navbar" auto
+            "contenido" auto
+            "pie" 100px/
+            auto;
+        ;
+    }
+}
+
+/* Barra de navegación */
+ul li{
+    margin-left: 15px;
+}
+
+.navbar {
+    background: linear-gradient(90deg, #1976d2 0%, #63a4ff 100%);
+    box-shadow: 0 4px 20px rgba(25, 118, 210, 0.10);
+    transition: box-shadow 0.3s, background 0.3s;
+}
+
+.navbar.scrolled {
+    box-shadow: 0 8px 32px rgba(25, 118, 210, 0.18);
+    background: linear-gradient(90deg, #1976d2 80%, #63a4ff 100%);
+}
+
+.navbar-nav .nav-link {
+    position: relative;
+    transition: color 0.2s;
+    color: white !important;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 3px;
+    background: #ffe082;
+    border-radius: 2px;
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 100%;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #ffe082 !important;
+}
+
+/* No need for specific dropdown-toggle styles since it's just a nav-link now */
+.navbar-nav .dropdown-toggle::after {
+    display: none !important;
+}
+
+/*
+h2{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 40px;
+    background: linear-gradient(to bottom, #e5e9ef, #f7f7f7);
+    width: 1000px;
+    padding: 20px;
+    min-height: 50px;
+    border-radius: 30px;
+    color: #f4f6fb;
+    box-shadow: 0 8px 10px rgba(101, 168, 234, 0.253);
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+h3{
+    color: #1976d2;
+    font-weight: 700;
+    text-align: center;
+}
+
+h4{
+    color: #333;
+    font-weight: 700;
+}
+    */

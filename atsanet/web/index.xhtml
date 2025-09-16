@@ -1,0 +1,186 @@
+<ui:composition template="/templates/plantilla2.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:define name="title">Club Deportivo Atlético Santander</ui:define>
+
+    <ui:define name="head">
+        <link rel="stylesheet" href="#{request.contextPath}/resources/css/index.css"/>
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="grid-main">
+            <section class="presentacion">
+                <h1 class="display-4">CLUB DEPORTIVO ATLÉTICO SANTANDER</h1>
+                <p class="lead">Bienvenidos al Club Deportivo Atlético Santander</p>
+                <hr class="border-5 border-dark opacity-50" />
+
+                <p>Ubicado en el corazón de Vélez, Santander, el "Club Deportivo Atlético Santander" es una escuela
+                    dedicada al
+                    desarrollo integral de jóvenes talentos en el fútbol. Con más de una década de experiencia,
+                    nuestro objetivo
+                    es formar deportistas comprometidos y disciplinados, fomentando tanto el crecimiento físico como
+                    el
+                    desarrollo de valores a través del deporte.</p>
+                <div class="row">
+                    <div id="carouselImagnesClub" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="resources/img/imagen1.jpg" alt="Imagen 1" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="resources/img/imagen2.jpg" alt="Imagen 2" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="resources/img/imagen3.jpg" alt="Imagen 3" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="resources/img/imagen4.jpg" alt="Imagen 4" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="resources/img/imagen5.jpg" alt="Imagen 5" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="resources/img/equipo.jpeg" alt="Imagen 6" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="resources/img/trofeos.jpeg" alt="Imagen 7" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <section class="informacion">
+                <h2>Información del Club</h2>
+                <hr class="border-5 border-dark opacity-50" />
+
+
+                <section id="categorias">
+                    <h2 class="text-center">Categorías</h2>
+                    <p class="text-center">Nuestra escuela está abierta para niños, niñas y jóvenes desde los 4
+                        hasta los 20
+                        años, organizados en las siguientes categorías:</p>
+
+                    <div class="ca">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Infantil (4 a 7 años)</h5>
+                                    <hr />
+                                    <hr />
+                                    <p class="card-text">Descubrimiento del fútbol a través del juego y el
+                                        desarrollo de la
+                                        coordinación motriz.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Infantil (8 a 11 años)</h5>
+                                    <hr />
+                                    <hr />
+                                    <p class="card-text">Aprendizaje de fundamentos técnicos básicos y fomento de la
+                                        diversión
+                                        en
+                                        equipo.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Adolescente (12 a 15 años)</h5>
+                                    <hr />
+                                    <hr />
+                                    <p class="card-text">Desarrollo de habilidades técnicas específicas y principios
+                                        básicos de
+                                        táctica.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Prejuvenil (16 a 17 años)</h5>
+                                    <hr />
+                                    <hr />
+                                    <p class="card-text">Perfeccionamiento técnico y táctico enfocado en
+                                        competencias
+                                        deportivas.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Adultos (18 años)</h5>
+                                    <hr />
+                                    <hr />
+                                    <p class="card-text">Optimización del rendimiento físico y técnico con un
+                                        enfoque recreativo
+                                        y
+                                        competitivo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section id="horario">
+                    <h2>Horario de Entrenamiento</h2>
+                    <p>Martes, jueves y sábados: <strong>2:00 p.m. - 4:00 p.m.</strong></p>
+                    <p>¡Únete al Club Deportivo Atlético Santander y vive la pasión del fútbol mientras creces como
+                        deportista y
+                        persona!</p>
+
+                    <div class="d-flex justify-content-center mt-4">
+                        <a href="https://www.facebook.com/p/Club-deportivo-atletico-santander-100065061757021/"
+                           class="m-3" target="_blank" rel="noopener">
+                            <img src="resources/img/facebook.avif" alt="Facebook" width="50"
+                                 class="rounded-circle" />
+                        </a>
+                        <a href="mailto:contacto@clubatletico.com" class="m-3" target="_blank" rel="noopener">
+                            <img src="resources/img/telefono.jpg" alt="Teléfono" width="50"
+                                 class="rounded-circle" />
+                        </a>
+                        <a href="https://www.google.com/maps/place/Cra.+4+%2314-30,+Velez,+V%C3%A9lez,+Santander/@6.0193247,-73.6696701,17z/data=!3m1!4b1!4m6!3m5!1s0x8e41f06594745fc7:0xb299b58379d4ff95!8m2!3d6.0193247!4d-73.6696701!16s%2Fg%2F11tf6m33wz?entry=ttu&amp;g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D"
+                           class="m-3" target="_blank" rel="noopener">
+                            <img src="resources/img/logosmpa.png" alt="Ubicación" width="50"
+                                 class="rounded-circle" />
+                        </a>
+                    </div>
+                </section>
+
+            </section>
+            <section class="formulario">
+                <h2>Inscripción y Renovación</h2>
+                <hr class="border-5 border-dark opacity-50" />
+                <p>¿Estás listo para unirte o renovar tu matrícula en el Club Deportivo Atlético Santander? Haz clic
+                    en los
+                    siguientes enlaces para más información, también puedes ser parte de nuestra escuela como un
+                    grandioso
+                    entrenador enlace de inscripción abajo.</p>
+
+                <div class="row m-5">
+                    <h:form id="botones">
+                        <h:commandButton class="btn btn-md btn-danger p-3" id="formAlumno" style="border: none; margin: 20px;" value="Formulario Inscripción"
+                                         action="formAlumno" />
+                        <h:commandButton class="btn btn-md btn-danger p-3" id="renovacion" style="border: none; margin: 20px;" value="Renovación Matriculas"
+                                         action="renovacion" />
+                        <h:commandButton class="btn btn-md btn-danger p-3" id="formEntrenador" style="border: none; margin: 20px;" value="Formulario Entrenador"
+                                         action="formEntre" />
+                    </h:form>
+                </div>
+            </section>
+        </div>
+    </ui:define>
+</ui:composition>

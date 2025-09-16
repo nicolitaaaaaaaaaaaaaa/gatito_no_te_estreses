@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title><ui:insert name="title">Entrenador platilla</ui:insert></title>
+
+        <link rel="stylesheet" href="#{request.contextPath}/resources/css/plantilla.css"/>
+        <link rel="stylesheet" href="#{request.contextPath}/resources/css/entrenador.css"/>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+        <ui.insert name="head"/>
+    
+    </h:head>
+    <h:body>
+        <f:event type="preRenderView" listener="#{personalBeen.verifSesion()}"/>
+        
+        <div class="grid-container">
+            <header class="navbar navbar-expand-lg navbar-dark">
+                <a href="/atsaNet/InicioUsuario">
+                    <img src="resources/img/logo_club.png" style="width: 200px;" alt="Logo del club"/>
+                </a>
+
+                <!-- Menú hamburguesa para móvil -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+                        aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Menú principal -->
+                <div class="collapse navbar-collapse" id="navbarMenu">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-white fw-bold">
+                                <h:form>
+                                    <h:commandButton class="nav-link text-white fw-bold" style="background: transparent; border: transparent" value="Alumnos" action="/alumnos/index"/>
+                                </h:form>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white fw-bold">
+                                <h:form>
+                                    <h:commandButton class="nav-link text-white fw-bold" style="background: transparent; border: transparent" value="Entrenamientos y Objetivos" action="/entrenamientos/index"/>
+                                </h:form>
+                            </a> 
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white fw-bold">
+                                <h:form>
+                                    <h:commandButton class="nav-link text-white fw-bold" style="background: transparent; border: transparent" value="Sesión de Entrenamiento" action="/sesionEntre/index"/>
+                                </h:form>
+                            </a> 
+                        </li>
+                    </ul>
+
+                    
+                    <!-- Perfil a la derecha -->
+                    <div class="d-flex align-items-center me-3">
+                        <div class="text-end me-3">
+                            <h:outputText class="fw-bold text-black" value="#{personalBeen.personal.nom1_persona}"/>
+                            <br/>
+                            <span class="text-white-60" style="font-size: 0.9em;">Entrenador</span>
+                        </div>
+                        <h:form>
+                            <h:commandButton class="btn btn-outline-light ms-3" value="Cerrar Sesión" actionListener="#{personalBeen.cerrarSesion()}" action="index" />
+                        </h:form>
+                    </div>
+                </div>
+            </header>
+                
+            <main class="contenido">
+                <ui:insert name="content"/>
+            </main>
+            
+            <footer class="pie">
+                <ui:insert name="footer">
+                    <p>
+                        © 2024 Club Deportivo Atlético Santander. Todos los derechos reservados.
+                        Este sitio web y su contenido son propiedad del Club Deportivo Atlético Santander
+                        Queda prohibida su reproducción total o parcial sin autorización previa por escrito.
+                        Síguenos en nuestras redes sociales para estar al tanto de noticias, eventos y actividades del club.
+                    </p>
+                </ui:insert>
+            </footer>
+            
+            <ui:insert name="script"/>
+        </div>
+        
+        <ui:insert name="script"/>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </h:body>
+</html>

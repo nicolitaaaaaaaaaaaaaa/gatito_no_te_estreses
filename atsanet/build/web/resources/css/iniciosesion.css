@@ -1,0 +1,149 @@
+
+.grid-main{
+    display: grid;
+    margin: 0;
+    padding: 0;
+    grid-template: 
+    "sesion"
+    ;
+
+    .sesion{
+        grid-area: sesion;
+        margin-top: 20px;
+        background: #fcfbfbd2;
+        color: #263a5e;
+    }
+
+    @media (min-width: 768px){
+        justify-content: center;
+        grid-template:
+        "sesion" auto/
+        620px;
+        ;
+    }
+
+    @media (min-width: 992px){
+        justify-content: center;
+        grid-template:  
+        "sesion" auto/
+        620px;
+        ;
+    }
+}
+
+.sesion{
+    margin: 20px auto;
+    padding: 60px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(25, 118, 210, 0.10);
+    border: 1px solid #e3f0ff;
+    transition: transform 0.4s;
+}
+
+.sesion:hover{
+    transform: scale(1.01);
+    box-shadow: 0 12px 40px 0 rgba(25, 118, 210, 0.18);
+}
+
+
+.login-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 25px auto;
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    border-radius: 50%;
+    box-shadow: 0 4px 16px rgba(67, 233, 123, 0.2);
+}
+
+.login-icon img {
+    width: 60%;
+}
+
+.form-label {
+    color: #1976d2;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.form-control {
+    background: #f4faff;
+    border: 1px solid #b6e0fe;
+    color: #1976d2;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.03);
+}
+
+.form-control:focus {
+    background: #c8c9ca;
+    color: #0d47a1;
+    border: 1.5px solid #1976d2;
+    box-shadow: 0 0 0 2px #63a4ff44;
+}
+
+.btn-secondary {
+    background: linear-gradient(90deg, #1976d2 0%, #63a4ff 100%);
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(90deg, #63a4ff 0%, #1976d2 100%);
+    color: #fff;
+}
+
+.btn-danger {
+    background: linear-gradient(90deg, #ff5252 0%, #ff1744 100%);
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #fff;
+    transition: background 0.3s;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(90deg, #ff1744 0%, #ff5252 100%);
+}
+
+.alert-danger {
+    background: rgba(255, 82, 82, 0.9);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+}
+
+.welcome-message {
+    display: none;
+    background: linear-gradient(90deg, #b6e0fe 0%, #e3f0ff 100%);
+    color: #1976d2;
+    border: none;
+    padding: 18px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.text-secondary {
+    color: #7b8a99 !important;
+}
+
+.msg {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: red;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+    display: block;
+    margin: 5px;
+}

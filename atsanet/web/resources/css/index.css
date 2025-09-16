@@ -1,0 +1,145 @@
+
+.grid-main {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    grid-template:
+        "presentacion" auto
+        "informacion" auto
+        "formulario" auto
+    ;
+
+    .presentacion {
+        grid-area: presentacion;
+        margin-top: 20px;
+        background: transparent;
+        color: #263a5e;
+    }
+
+    .informacion {
+        grid-area: informacion;
+        background: transparent;  
+        color: white;   
+    }
+
+    .formulario {
+        grid-area: formulario;
+        background: transparent;
+        color: #263a5e;
+    }
+
+    @media (min-width: 768px) {
+        justify-content: center;
+        grid-template:
+            "presentacion" auto
+            "informacion" auto
+            "formulario" auto/
+            668px;
+        ;
+    }
+
+    @media (min-width: 992px) {
+        justify-content: center;
+        grid-template:
+            "presentacion" auto
+            "informacion" auto
+            "formulario" auto/
+            1100px;
+        ;
+    }
+}
+
+.presentacion,
+.informacion,
+.formulario {
+    padding: 40px;
+    margin: 20px;
+    text-align: center;
+}
+
+.formulario h2 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.informacion h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #263a5e;
+}
+
+.intro p {
+    color: #141212;
+}
+
+#carouselImagnesClub img {
+    height: 550px;
+    border-radius: 15px;
+    box-shadow: 0 18px 18px rgba(0, 0, 0, 0.20);
+    transition: transform 0.2s;
+}
+
+#carouselImagnesClub img:hover {
+    transform: scale(1.05);
+}
+
+#categorias, #horario{
+    padding: 40px;
+    margin-top: 10px;
+    background: linear-gradient(90deg, #1976d2 0%, #63a4ff 100%);
+    border-radius: 15px;  
+}
+
+.ca{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ca .col{
+    display: flex;
+    justify-content: center;
+}
+
+.col .card {
+    background: #fff;
+    width: 250px;
+    height: 200px;
+    color: #1976d2;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(25, 118, 210, 0.10);
+    margin: 10px;
+    border: 1px solid #e3f0ff;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.card {
+    transition: transform 0.5s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px 0 rgba(25, 118, 210, 0.18);
+}
+
+#botones{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+}
+.btn-danger {
+    background: linear-gradient(90deg, #ff5252 0%, #ff1744 100%);
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    color: #fff;
+    transition: background 0.3s;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(90deg, #ff1744 0%, #ff5252 100%);
+}
+
+input{
+    border:none;
+}
