@@ -1,9 +1,10 @@
 <ui:composition template="/templates/administrador.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
-                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <ui:define name="title">Club Deportivo Atlético Santander</ui:define>
+    <ui:define name="title">Alumnos postulados </ui:define>
 
     <ui:define name="head">
         <link rel="stylesheet" href="#{request.contextPath}/resources/css/matricula.css"/>
@@ -11,11 +12,147 @@
 
     <ui:define name="content">
         <div class="grid-main">
-                <section class="contenido">
-                    <h1>hola</h1>
-                </section>
+            <section class="contenido" style="flex-direction: column">
+                <h:form>
+                    <h1>Gestion de postulantes</h1>
+                    <br/>
+                    <h:commandButton value="Nuevo provedor" />
+                    <h:dataTable value="#{alumnoBeen.lstAlumno}" var="alumnos" border="1">
+                        <h:column>
+                            <f:facet name="header">Id</f:facet>
+                            <h:outputLabel value="#{alumnos.id}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+
+
+                <table class="table table-responsive table-primary table-striped">
+                    <thead>
+                        <th>Nombre</th>
+                        <th>Cantidad Alumnos</th>
+                        <th>Posiciones</th>
+                        <th>Alumnos posicion</th>
+                        <th>Alumnos posicion</th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th>
+                                <button type="button" class="btn" data-bs-toggle="modal"
+                                        data-bs-target="#informacion">ver informacion</button>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <!-- Modal Informacion -->
+            <div class="modal fade" id="informacion" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content" id="nose">
+                        <div class="modal-body">
+                            <div class="titulo-modal">
+                                <h3>Informacion Aspirante</h3>
+                            </div>
+                            <form class="form formulario-informacion">
+                                <div class="partes">
+                                    <h5>Informacion principal:</h5>
+                                    <label class="form-label info" for="id_persona">Identificacion: </label>
+                                    <p>hola</p>
+                                    <label class="form-label info" for="tipo_id">Tipo identificacion: </label>
+                                    <p>hola</p>
+                                    <label class="form-label info" for="nom1">Primer nombre: </label>
+                                    <p>hola</p>
+                                    <label class="form-label info" for="nom2">Segundo nombre: </label>
+                                    <p>hola</p>
+                                    <label class="form-label info" for="ape1">Primer apellido: </label>
+                                    <p>hola</p>
+                                    <label class="form-label info" for="ape2">segundo apelldio: </label>
+                                    <p>hola</p>
+                                    <label class="form-label info" for="nacimiento">Fecha nacimiento: </label>
+                                    <p>hola</p>
+                                    <label class="form-label info" for="edad">edad: </label>
+                                    <p>hola</p>
+                                    <label class="form-label info" for="genero">Genero: </label>
+                                    <p>hola</p>
+                                    <label class="form-label info" for="eps">Eps: </label>
+                                    <p>hola</p>
+                                    <label class="form-label info" for="rh">Rh: </label>
+                                    <p>hola</p>
+                                </div>
+                                <div class="partes">
+                                    <h5>Informacion de contacto:</h5>
+                                    <label class="form-label info" for="direccion">Direccion: </label>
+                                    <p>hola</p>
+                                    <label class="form-label info" for="telefono">Telefono: </label>
+                                    <p>hola</p>
+                                    <label class="form-label info" for="email">Email: </label>
+                                    <p>hola</p>
+                                    <label class="form-label info" for="nom1Acu">Primer nombre acudiente: </label>
+                                    <p>hola</p>
+                                    <label class="form-label info" for="nom2Acu">Segundo nombre acudiente: </label>
+                                    <p>hola</p>
+                                    <label class="form-label info" for="ape1Acu">Primer apellido acudiente: </label>
+                                    <p>hola</p>
+                                    <label class="form-label info" for="ape2Acu">Segundo apellido acudiente: </label>
+                                    <p>hola</p>
+                                    <label class="form-label info" for="telefonoAcu">Telefono acudiente: </label>
+                                    <p>hola</p>
+                                    <label class="form-label info" for="parentesco">Parentesco: </label>
+                                </div>
+                                <div class="partes">
+                                    <h5>Informacion Fisica:</h5>
+                                    <label class="form-label info" for="talla">Talla: </label>
+                                    <p>hola</p>
+                                    <label class="form-label info" for="calzado">Calzado: </label>
+                                    <p>hola</p>
+                                    <label class="form-label info" for="piedom">Pie dominante: </label>
+                                    <p>hola</p>
+                                    <label class="form-label info" for="nomPosicion">Posicion: </label>
+                                    <p>hola</p>
+                                    <label class="form-label info" for="foto">Foto Aspirante: </label>
+                                    <p>hola</p>
+                                    <label class="form-label info" for="categoria">Categoria: </label>
+                                    <p>hola</p>
+                                    <label class="form-label info" for="estado">Estado Aspirante: </label>
+                                    <p>hola</p>
+                                </div>
+
+                                <div class="partes">
+                                    <h5>Documentos:</h5>
+                                    <label class="form-label info" for="archivoDatos">Tratamiento de datos: </label>
+                                    <input class="form-control" type="file" id="archivoDatos"/>
+                                    <label class="form-label info" for="archivoAutorizacion">Autorizacion medica:
+                                    </label>
+                                    <input class="form-control" type="file" id="archivoAutorizacion"/>
+                                    <label class="form-label info" for="archivoEps">Comprobante eps: </label>
+                                    <input class="form-control" type="file" id="archivoEps"/>
+                                </div>
+
+                                <div class="botones">
+                                    <button type="submit" id="botonConfirmar"
+                                        class="btn btn-main-action btn-success">Aceptar
+                                        Aspirante</button>
+                                    <button type="submit" id="botonRechazar"
+                                        class="btn btn-main-action btn-danger">Rechazar
+                                        Aspirante</button>
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">cancelar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-                          
+
+
+            </section>
+        </div>                     
     </ui:define>
 
 </ui:composition>

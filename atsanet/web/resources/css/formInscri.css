@@ -52,7 +52,8 @@
 .datospersonales,
 .datosfisicos,
 .autorizaciones,
-.confirmar {
+.confirmar,
+.datosacudiente {
     padding-top: 20px;
     background: #d2e6f5;
     box-shadow: 0 4px 20px rgba(25, 118, 210, 0.10);

@@ -11,269 +11,342 @@
 
     <ui:define name="content">
         <div class="grid-main">
-                <section class="presentacion">
-                    <h2>Bienvenido al Club Deportivo Atlético Santander.</h2>
-                    <hr class="border-5 border-dark opacity-50"/>
-                    <p>¡¡Llena el siguiente formulario para ser parte de nuestra familia!!</p>
-                    <p>Llena el formulario con información verídica,<br/>los datos puestos aquí estarán
-                        <kbd>protegidos.</kbd>
-                    </p>
-                </section>
-                <section class="formulario">
-                    <h2>Formulario de Inscripción</h2>
-                    <hr class="border-5 border-dark opacity-50" />
+            <section class="presentacion">
+                <h2>Bienvenido al Club Deportivo Atlético Santander.</h2>
+                <hr class="border-5 border-dark opacity-50"/>
+                <p>¡¡Llena el siguiente formulario para ser parte de nuestra familia!!</p>
+                <p>Llena el formulario con información verídica,<br/>los datos puestos aquí estarán
+                    <kbd>protegidos.</kbd>
+                </p>
+            </section>
+            <section class="formulario">
+                <h2>Formulario de Inscripción</h2>
+                <hr class="border-5 border-dark opacity-50" />
 
-                    <form class="form">
-                        <section class="datospersonales">
-                            <h2>Datos Personales</h2>
+                <form class="form">
+                    <section class="datospersonales">
+                        <h2>Datos Personales</h2>
 
-                            <div class="secciones">
-                                <div class="col">
-                                    <label class="form-label" for="txtTipoId">Tipo Id</label>
-                                    <select class="form-select" id="txtTipoId" required="true">
-                                        <option value="">Elige...</option>
-                                        <option value="RC">RC</option>
-                                        <option value="TI">TI</option>
-                                        <option value="CC">CC</option>
-                                        <option value="PASAPORTE">PAS</option>
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        Por favor selecciona un tipo de identificación.
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <label class="form-label" for="txtNumeroID">Número ID</label>
-                                    <input type="number" id="txtNumeroID" class="form-control" required="true"
-                                        placeholder="Ingresa Número..." min="999999" max="9999999999"
-                                        title="Debe ser un número válido."/>
-                                    <div class="invalid-feedback">
-                                        Ingresa un número válido (6 a 12 dígitos).
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <label class="form-label" for="txtPNombre">Primer Nombre</label>
-                                    <input type="text" id="txtPNombre" class="form-control" required="true"
-                                        placeholder="Ingresa Nombre" pattern="[A-Za-z]{3,15}"
-                                        title="Debe tener entre 3 y 15 letras, sin números ni caracteres especiales."/>
-                                    <div class="invalid-feedback">
-                                        Ingresa un nombre válido (3 a 15 letras).
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <label class="form-label" for="txtSNombre">Segundo Nombre</label>
-                                    <input type="text" id="txtSNombre" class="form-control" placeholder="Ingresa Nombre"
-                                        pattern="[A-Za-z]{3,15}" title="Opcional. Hasta 15 letras."/>
-                                    <div class="invalid-feedback">
-                                        Ingresa un nombre válido (opcional, hasta 15 letras).
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <label class="form-label" for="txtPApellido">Primer Apellido</label>
-                                    <input type="text" id="txtPApellido" class="form-control" required="true"
-                                        placeholder="Ingresa Apellido" pattern="[A-Za-z]{3,15}"
-                                        title="Debe tener entre 3 y 15 letras."/>
-                                    <div class="invalid-feedback">
-                                        Ingresa un apellido válido (3 a 15 letras).
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <label class="form-label" for="txtSapellido">Segundo Apellido</label>
-                                    <input type="text" id="txtSapellido" class="form-control"
-                                        placeholder="Ingresa Apellido" pattern="[A-Za-z]{3,15}"
-                                        title="Opcional. Hasta 15 letras."/>
-                                    <div class="invalid-feedback">
-                                        Ingresa un apellido válido (opcional, hasta 15 letras).
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <label class="form-label" for="txtSexo">Genero</label>
-                                    <select class="form-select" id="txtSexo" required="true">
-                                        <option value="">Elige...</option>
-                                        <option value="M">Masculino</option>
-                                        <option value="F">Femenino</option>
-                                        <option value="NB">No binario</option>
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        Por favor selecciona un género.
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <label class="form-label" for="txtFechaN">Fecha de nacimiento</label>
-                                    <input type="date" id="txtFechaN" class="form-control" required="true"
-                                        placeholder="Ingresa Fecha" min="2005-01-01" max="2019-12-31"
-                                        title="Selecciona tu fecha de nacimiento"/>
-                                    <div class="invalid-feedback">
-                                        Selecciona una fecha válida.
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <label class="form-label" for="txtFechaN">Edad</label>
-                                    <input type="number" id="txtedad" class="form-control"/>
-                                    <div class="invalid-feedback">
-                                        La edad se calculara
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <label class="form-label" for="txtEps">EPS</label>
-                                    <input type="text" id="txtEps" class="form-control" required="true"
-                                        placeholder="Ingresa Eps" pattern="[A-Za-z\s]{5,15}"
-                                        title="Solo se permiten letras y espacios, máximo 15 caracteres."/>
-                                    <div class="invalid-feedback">
-                                        Ingresa una EPS válida (solo letras y espacios, 5 a 15 caracteres).
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <label class="form-label" for="txtDireccion">Dirección domicilio</label>
-                                    <input type="text" id="txtDireccion" class="form-control" required="true"
-                                        placeholder="Ingresa Dirección"
-                                        title="Debe ser una dirección válida con letras, números, espacios y algunos caracteres especiales (#, ., -)."/>
-                                    <div class="invalid-feedback">
-                                        Ingresa una dirección válida.
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <label class="form-label" for="txtCelular">Número celular</label>
-                                    <input type="tel" id="txtCelular" class="form-control" required="true"
-                                        placeholder="Ingresa Número" pattern="^\d{10}$"
-                                        title="Debe contener 10 dígitos."/>
-                                    <div class="invalid-feedback">
-                                        Ingresa un número de celular válido (10 dígitos).
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <label class="form-label" for="txtCorreo">Correo Electrónico</label>
-                                    <input type="email" id="txtCorreo" class="form-control" required="true"
-                                        placeholder="example@gmail.com" maxlength="100"
-                                        title="Ingresa un correo electrónico válido."/>
-                                    <div class="invalid-feedback">
-                                        Ingresa un correo electrónico válido.
-                                    </div>
+                        <div class="secciones">
+                            <div class="col">
+                                <label class="form-label" for="txtTipoId">Tipo Id</label>
+                                <select class="form-select" id="txtTipoId" required="true">
+                                    <option value="">Elige...</option>
+                                    <option value="RC">RC</option>
+                                    <option value="TI">TI</option>
+                                    <option value="CC">CC</option>
+                                    <option value="PASAPORTE">PAS</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Por favor selecciona un tipo de identificación.
                                 </div>
                             </div>
-                        </section>
-                        <section class="datosfisicos">
-                            <h2>Datos Fisicos</h2>
-
-                            <div class="secciones">
-                                <div class="col">
-                                    <label class="form-label" for="txtTSangre">Tipo de sangre</label>
-                                    <select id="txtTSangre" class="form-select" required="true">
-                                        <option value="">Elige...</option>
-                                        <option value="A">A-</option>
-                                        <option value="B">B+</option>
-                                        <option value="B">B-</option>
-                                        <option value="AB">AB+</option>
-                                        <option value="AB">AB-</option>
-                                        <option value="O">O+</option>
-                                        <option value="O">O-</option>
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        Por favor selecciona un tipo de sangre.
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <label class="form-label" for="txtAltura">Altura</label>
-                                    <input type="number" id="txtAltura" class="form-control" required="true"
-                                        placeholder="Ingresa Altura" min="0.50" max="2.50" step="0.01"
-                                        title="Ingresa un valor entre 0.50 y 2.50 metros."/>
-                                    <div class="invalid-feedback">
-                                        Ingresa una altura válida (0.50 a 2.50 metros).
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <label class="form-label" for="txtPeso">Peso</label>
-                                    <input type="number" id="txtPeso" class="form-control" required="true"
-                                        placeholder="Ingresa Peso" min="10" max="100" step="0.01"
-                                        title="Ingresa un valor entre 10 y 100 kg."/>
-                                    <div class="invalid-feedback">
-                                        Ingresa un peso válido (10 a 100 kg).
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <label class="form-label" for="txtTalla">Talla</label>
-                                    <input type="text" id="txtTalla" class="form-control" required="true"
-                                        placeholder="Ingresa Talla" pattern="[A-Za-z0-9]{2,6}"
-                                        title="Solo se permiten letras (e.g., XS, M, L) y números."/>
-                                    <div class="invalid-feedback">
-                                        Ingresa una talla válida (2 a 6 caracteres, letras o números).
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <label class="form-label" for="txtCalzado">Calzado</label>
-                                    <input type="number" id="txtCalzado" class="form-control" required="true"
-                                        placeholder="ingresa Calzado" min="15" max="50"
-                                        title="Ingresa un número entre 15 y 50."/>
-                                    <div class="invalid-feedback">
-                                        Ingresa una talla de calzado válida (15 a 50).
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <label class="form-label" for="txtPieD">Pie Dominante</label>
-                                    <select id="txtPieD" class="form-select" required="true">
-                                        <option value="">Elige...</option>
-                                        <option value="Diestro">Diestro</option>
-                                        <option value="Zurdo">Zurdo</option>
-                                        <option value="Ambidiestro">Ambidiestro</option>
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        Por favor selecciona el pie dominante.
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <label class="form-label" for="txtPosicion">Posición en Cancha</label>
-                                    <select id="txtPosicion" class="form-select" required="true">
-                                        <option value="">Elige...</option>
-                                        <option value="Portero">Portero</option>
-                                        <option value="Defensa">Defensa</option>
-                                        <option value="MedioCampo">Medio Campo</option>
-                                        <option value="Delantero">Delantero</option>
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        Por favor selecciona una posición en cancha.
-                                    </div>
+                            <div class="col">
+                                <label class="form-label" for="txtNumeroID">Número ID</label>
+                                <input type="number" id="txtNumeroID" class="form-control" required="true"
+                                       placeholder="Ingresa Número..." min="999999" max="9999999999"
+                                       title="Debe ser un número válido."/>
+                                <div class="invalid-feedback">
+                                    Ingresa un número válido (6 a 12 dígitos).
                                 </div>
                             </div>
-                        </section>
-                        <section class="autorizaciones">
-                            <h2>Autorizaciones</h2>
-
-                            <div class="secciones">
-                                <div class="col-sm col-auto">
-                                    <label class="form-label" for="fileTratamiento">Tratamiento de
-                                        datos</label>
-                                    <input type="file" class="form-control" id="fileTratamiento"
-                                        accept="application/pdf" required="true"/>
-                                    <div class="invalid-feedback">
-                                        Adjunta el PDF de tratamiento de datos.
-                                    </div>
-                                </div>
-
-                                <div class="col-sm col-auto">
-                                    <label class="form-label" for="fileMedica">Autorización Médica</label>
-                                    <input type="file" class="form-control" id="fileMedica" accept="application/pdf"
-                                        required="true"/>
-                                    <div class="invalid-feedback">
-                                        Adjunta el PDF de autorización médica.
-                                    </div>
-                                </div>
-
-                                <div class="col-sm col-auto">
-                                    <label class="form-label" for="fileEps">Comprobante EPS</label>
-                                    <input type="file" class="form-control" id="fileEps" accept="application/pdf"
-                                        required="true"/>
-                                    <div class="invalid-feedback">
-                                        Adjunta el PDF del comprobante EPS.
-                                    </div>
+                            <div class="col">
+                                <label class="form-label" for="txtPNombre">Primer Nombre</label>
+                                <input type="text" id="txtPNombre" class="form-control" required="true"
+                                       placeholder="Ingresa Nombre" pattern="[A-Za-z]{3,15}"
+                                       title="Debe tener entre 3 y 15 letras, sin números ni caracteres especiales."/>
+                                <div class="invalid-feedback">
+                                    Ingresa un nombre válido (3 a 15 letras).
                                 </div>
                             </div>
-                        </section>
+                            <div class="col">
+                                <label class="form-label" for="txtSNombre">Segundo Nombre</label>
+                                <input type="text" id="txtSNombre" class="form-control" placeholder="Ingresa Nombre"
+                                       pattern="[A-Za-z]{3,15}" title="Opcional. Hasta 15 letras."/>
+                                <div class="invalid-feedback">
+                                    Ingresa un nombre válido (opcional, hasta 15 letras).
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="txtPApellido">Primer Apellido</label>
+                                <input type="text" id="txtPApellido" class="form-control" required="true"
+                                       placeholder="Ingresa Apellido" pattern="[A-Za-z]{3,15}"
+                                       title="Debe tener entre 3 y 15 letras."/>
+                                <div class="invalid-feedback">
+                                    Ingresa un apellido válido (3 a 15 letras).
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="txtSapellido">Segundo Apellido</label>
+                                <input type="text" id="txtSapellido" class="form-control"
+                                       placeholder="Ingresa Apellido" pattern="[A-Za-z]{3,15}"
+                                       title="Opcional. Hasta 15 letras."/>
+                                <div class="invalid-feedback">
+                                    Ingresa un apellido válido (opcional, hasta 15 letras).
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="txtSexo">Genero</label>
+                                <select class="form-select" id="txtSexo" required="true">
+                                    <option value="">Elige...</option>
+                                    <option value="M">Masculino</option>
+                                    <option value="F">Femenino</option>
+                                    <option value="NB">No binario</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Por favor selecciona un género.
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="txtFechaN">Fecha de nacimiento</label>
+                                <input type="date" id="txtFechaN" class="form-control" required="true"
+                                       placeholder="Ingresa Fecha" min="2005-01-01" max="2019-12-31"
+                                       title="Selecciona tu fecha de nacimiento"/>
+                                <div class="invalid-feedback">
+                                    Selecciona una fecha válida.
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="txtFechaN">Edad</label>
+                                <input type="number" id="txtedad" class="form-control"/>
+                                <div class="invalid-feedback">
+                                    La edad se calculara
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="txtEps">EPS</label>
+                                <input type="text" id="txtEps" class="form-control" required="true"
+                                       placeholder="Ingresa Eps" pattern="[A-Za-z\s]{5,15}"
+                                       title="Solo se permiten letras y espacios, máximo 15 caracteres."/>
+                                <div class="invalid-feedback">
+                                    Ingresa una EPS válida (solo letras y espacios, 5 a 15 caracteres).
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="txtDireccion">Dirección domicilio</label>
+                                <input type="text" id="txtDireccion" class="form-control" required="true"
+                                       placeholder="Ingresa Dirección"
+                                       title="Debe ser una dirección válida con letras, números, espacios y algunos caracteres especiales (#, ., -)."/>
+                                <div class="invalid-feedback">
+                                    Ingresa una dirección válida.
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="txtCelular">Número celular</label>
+                                <input type="tel" id="txtCelular" class="form-control" required="true"
+                                       placeholder="Ingresa Número" pattern="^\d{10}$"
+                                       title="Debe contener 10 dígitos."/>
+                                <div class="invalid-feedback">
+                                    Ingresa un número de celular válido (10 dígitos).
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="txtCorreo">Correo Electrónico</label>
+                                <input type="email" id="txtCorreo" class="form-control" required="true"
+                                       placeholder="example@gmail.com" maxlength="100"
+                                       title="Ingresa un correo electrónico válido."/>
+                                <div class="invalid-feedback">
+                                    Ingresa un correo electrónico válido.
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
-                        <section class="confirmar">
-                            <button type="submit" class="btn btn-warning" style="height: 50px;">Enviar Formulario de
-                                Inscripción</button>
-                        </section>
-                    </form>
-                </section>
-            </div>
+                    <section class="datosfisicos">
+                        <h2>Datos Fisicos</h2>
+
+                        <div class="secciones">
+                            <div class="col">
+                                <label class="form-label" for="txtTSangre">Tipo de sangre</label>
+                                <select id="txtTSangre" class="form-select" required="true">
+                                    <option value="">Elige...</option>
+                                    <option value="A">A-</option>
+                                    <option value="B">B+</option>
+                                    <option value="B">B-</option>
+                                    <option value="AB">AB+</option>
+                                    <option value="AB">AB-</option>
+                                    <option value="O">O+</option>
+                                    <option value="O">O-</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Por favor selecciona un tipo de sangre.
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="txtTalla">Talla</label>
+                                <input type="text" id="txtTalla" class="form-control" required="true"
+                                       placeholder="Ingresa Talla" pattern="[A-Za-z0-9]{2,6}"
+                                       title="Solo se permiten letras (e.g., XS, M, L) y números."/>
+                                <div class="invalid-feedback">
+                                    Ingresa una talla válida (2 a 6 caracteres, letras o números).
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="txtCalzado">Calzado</label>
+                                <input type="number" id="txtCalzado" class="form-control" required="true"
+                                       placeholder="ingresa Calzado" min="15" max="50"
+                                       title="Ingresa un número entre 15 y 50."/>
+                                <div class="invalid-feedback">
+                                    Ingresa una talla de calzado válida (15 a 50).
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="txtPieD">Pie Dominante</label>
+                                <select id="txtPieD" class="form-select" required="true">
+                                    <option value="">Elige...</option>
+                                    <option value="Diestro">Diestro</option>
+                                    <option value="Zurdo">Zurdo</option>
+                                    <option value="Ambidiestro">Ambidiestro</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Por favor selecciona el pie dominante.
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="txtPosicion">Posición en Cancha</label>
+                                <select id="txtPosicion" class="form-select" required="true">
+                                    <option value="">Elige...</option>
+                                    <option value="Portero">Portero</option>
+                                    <option value="Defensa">Defensa</option>
+                                    <option value="MedioCampo">Medio Campo</option>
+                                    <option value="Delantero">Delantero</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Por favor selecciona una posición en cancha.
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="datosacudiente">
+                        <h2>Datos Acudiente o de emergencia</h2>
+                        <div class="secciones">
+                            <div class="col">
+                                <label class="form-label" for="txtTipoId">Tipo Id</label>
+                                <select class="form-select" id="txtTipoId" required="true">
+                                    <option value="">Elige...</option>
+                                    <option value="RC">RC</option>
+                                    <option value="TI">TI</option>
+                                    <option value="CC">CC</option>
+                                    <option value="PASAPORTE">PAS</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Por favor selecciona un tipo de identificación.
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="txtNumeroID">Número ID</label>
+                                <input type="number" id="txtNumeroID" class="form-control" required="true"
+                                       placeholder="Ingresa Número..." min="999999" max="9999999999"
+                                       title="Debe ser un número válido."/>
+                                <div class="invalid-feedback">
+                                    Ingresa un número válido (6 a 12 dígitos).
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="txtPNombre">Primer Nombre</label>
+                                <input type="text" id="txtPNombre" class="form-control" required="true"
+                                       placeholder="Ingresa Nombre" pattern="[A-Za-z]{3,15}"
+                                       title="Debe tener entre 3 y 15 letras, sin números ni caracteres especiales."/>
+                                <div class="invalid-feedback">
+                                    Ingresa un nombre válido (3 a 15 letras).
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="txtSNombre">Segundo Nombre</label>
+                                <input type="text" id="txtSNombre" class="form-control" placeholder="Ingresa Nombre"
+                                       pattern="[A-Za-z]{3,15}" title="Opcional. Hasta 15 letras."/>
+                                <div class="invalid-feedback">
+                                    Ingresa un nombre válido (opcional, hasta 15 letras).
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="txtPApellido">Primer Apellido</label>
+                                <input type="text" id="txtPApellido" class="form-control" required="true"
+                                       placeholder="Ingresa Apellido" pattern="[A-Za-z]{3,15}"
+                                       title="Debe tener entre 3 y 15 letras."/>
+                                <div class="invalid-feedback">
+                                    Ingresa un apellido válido (3 a 15 letras).
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="txtSapellido">Segundo Apellido</label>
+                                <input type="text" id="txtSapellido" class="form-control"
+                                       placeholder="Ingresa Apellido" pattern="[A-Za-z]{3,15}"
+                                       title="Opcional. Hasta 15 letras."/>
+                                <div class="invalid-feedback">
+                                    Ingresa un apellido válido (opcional, hasta 15 letras).
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="txtCelular">Número celular</label>
+                                <input type="tel" id="txtCelular" class="form-control" required="true"
+                                       placeholder="Ingresa Número" pattern="^\d{10}$"
+                                       title="Debe contener 10 dígitos."/>
+                                <div class="invalid-feedback">
+                                    Ingresa un número de celular válido (10 dígitos).
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="txtPNombre">Parentesco</label>
+                                <input type="text" id="txtPNombre" class="form-control" required="true"
+                                       placeholder="Ingresa Nombre" pattern="[A-Za-z]{3,15}"
+                                       title="Debe tener entre 3 y 15 letras, sin números ni caracteres especiales."/>
+                                <div class="invalid-feedback">
+                                    Ingresa un parentesco (3 a 15 letras).
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="autorizaciones">
+                        <h2>Autorizaciones</h2>
+                        <div class="secciones">
+                            <div class="col-sm col-auto">
+                                <label class="form-label" for="fileTratamiento">Foto de aspirante</label>
+                                <input type="file" class="form-control" id="fileTratamiento"
+                                       accept="application/pdf" required="true"/>
+                                <div class="invalid-feedback">
+                                    Adjunta la imagen del aspirante.
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm col-auto">
+                                <label class="form-label" for="fileTratamiento">Tratamiento de
+                                    datos</label>
+                                <input type="file" class="form-control" id="fileTratamiento"
+                                       accept="application/pdf" required="true"/>
+                                <div class="invalid-feedback">
+                                    Adjunta el PDF de tratamiento de datos.
+                                </div>
+                            </div>
+
+                            <div class="col-sm col-auto">
+                                <label class="form-label" for="fileMedica">Autorización Médica</label>
+                                <input type="file" class="form-control" id="fileMedica" accept="application/pdf"
+                                       required="true"/>
+                                <div class="invalid-feedback">
+                                    Adjunta el PDF de autorización médica.
+                                </div>
+                            </div>
+
+                            <div class="col-sm col-auto">
+                                <label class="form-label" for="fileEps">Comprobante EPS</label>
+                                <input type="file" class="form-control" id="fileEps" accept="application/pdf"
+                                       required="true"/>
+                                <div class="invalid-feedback">
+                                    Adjunta el PDF del comprobante EPS.
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="confirmar">
+                        <button type="submit" class="btn btn-warning" style="height: 50px;">Enviar Formulario de
+                            Inscripción</button>
+                    </section>
+                </form>
+            </section>
+        </div>
     </ui:define>
 </ui:composition>

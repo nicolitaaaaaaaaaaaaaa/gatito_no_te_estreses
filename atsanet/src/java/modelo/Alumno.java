@@ -7,49 +7,64 @@ package modelo;
 import java.sql.Date;
 
 public class Alumno extends Persona {
-    private int fkPersonaAlumno;
+    private int fk_persona_alumno;
     private String talla;
     private byte calzado;
-    private String pieDomi;
-    private int fkAcudiente;
+    private String pie_domi;
+    private int fk_acudiente;
     private String parentesco;
-    private int fkPosicion;
+    private int fk_posicion;
     private String foto;
-    private Date fechaVenCarnet;
-    private int fkCategoria;
     private String leyDatos;
     private String autoMedica;
     private String certificaEps;
-    private boolean estadoAlumno;
+    private boolean estado_alumno;
+    
+    private Acudiente acudiente;
+    private Matricula matricula;
 
+    public Matricula getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(Matricula matricula) {
+        this.matricula = matricula;
+    }
+    
+    public Acudiente getAcudiente() {
+        return acudiente;
+    }
+
+    public void setAcudiente(Acudiente acudiente) {
+        this.acudiente = acudiente;
+    }
+    
     public Alumno() {
         super();
     }
-
-    public Alumno(int fkPersonaAlumno, String talla, byte calzado, String pieDomi, int fkAcudiente, String parentesco, int fkPosicion, String foto, Date fechaVenCarnet, int fkCategoria, String leyDatos, String autoMedica, String certificaEps, boolean estadoAlumno, int id, int id_persona, String tipo_Id, String nom1_persona, String nom2_persona, String ape1_persona, String ape2_persona, Date fecha_nacimiento, int edad_persona, String direc_persona, long tel_persona, String email_persona, int fk_genero, int fk_eps, int fk_rh) {
+     
+    public Alumno(int fk_persona_alumno, String talla, byte calzado, String pie_domi, int fk_acudiente, String parentesco, int fk_posicion, String foto, String leyDatos, String autoMedica, String certificaEps, boolean estado_alumno, int id, int id_persona, String tipo_Id, String nom1_persona, String nom2_persona, String ape1_persona, String ape2_persona, Date fecha_nacimiento, int edad_persona, String direc_persona, long tel_persona, String email_persona, int fk_genero, int fk_eps, int fk_rh) {
         super(id, id_persona, tipo_Id, nom1_persona, nom2_persona, ape1_persona, ape2_persona, fecha_nacimiento, edad_persona, direc_persona, tel_persona, email_persona, fk_genero, fk_eps, fk_rh);
-        this.fkPersonaAlumno = fkPersonaAlumno;
+        this.fk_persona_alumno = fk_persona_alumno;
         this.talla = talla;
         this.calzado = calzado;
-        this.pieDomi = pieDomi;
-        this.fkAcudiente = fkAcudiente;
+        this.pie_domi = pie_domi;
+        this.fk_acudiente = fk_acudiente;
         this.parentesco = parentesco;
-        this.fkPosicion = fkPosicion;
+        this.fk_posicion = fk_posicion;
         this.foto = foto;
-        this.fechaVenCarnet = fechaVenCarnet;
-        this.fkCategoria = fkCategoria;
         this.leyDatos = leyDatos;
         this.autoMedica = autoMedica;
         this.certificaEps = certificaEps;
-        this.estadoAlumno = estadoAlumno;
+        this.estado_alumno = estado_alumno;
     }
 
-    public int getFkPersonaAlumno() {
-        return fkPersonaAlumno;
+    public int getFk_persona_alumno() {
+        return fk_persona_alumno;
     }
 
-    public void setFkPersonaAlumno(int fkPersonaAlumno) {
-        this.fkPersonaAlumno = fkPersonaAlumno;
+    public void setFk_persona_alumno(int fk_persona_alumno) {
+        this.fk_persona_alumno = fk_persona_alumno;
     }
 
     public String getTalla() {
@@ -68,20 +83,20 @@ public class Alumno extends Persona {
         this.calzado = calzado;
     }
 
-    public String getPieDomi() {
-        return pieDomi;
+    public String getPie_domi() {
+        return pie_domi;
     }
 
-    public void setPieDomi(String pieDomi) {
-        this.pieDomi = pieDomi;
+    public void setPie_domi(String pie_domi) {
+        this.pie_domi = pie_domi;
     }
 
-    public int getFkAcudiente() {
-        return fkAcudiente;
+    public int getFk_acudiente() {
+        return fk_acudiente;
     }
 
-    public void setFkAcudiente(int fkAcudiente) {
-        this.fkAcudiente = fkAcudiente;
+    public void setFk_acudiente(int fk_acudiente) {
+        this.fk_acudiente = fk_acudiente;
     }
 
     public String getParentesco() {
@@ -92,12 +107,12 @@ public class Alumno extends Persona {
         this.parentesco = parentesco;
     }
 
-    public int getFkPosicion() {
-        return fkPosicion;
+    public int getFk_posicion() {
+        return fk_posicion;
     }
 
-    public void setFkPosicion(int fkPosicion) {
-        this.fkPosicion = fkPosicion;
+    public void setFk_posicion(int fk_posicion) {
+        this.fk_posicion = fk_posicion;
     }
 
     public String getFoto() {
@@ -106,22 +121,6 @@ public class Alumno extends Persona {
 
     public void setFoto(String foto) {
         this.foto = foto;
-    }
-
-    public Date getFechaVenCarnet() {
-        return fechaVenCarnet;
-    }
-
-    public void setFechaVenCarnet(Date fechaVenCarnet) {
-        this.fechaVenCarnet = fechaVenCarnet;
-    }
-
-    public int getFkCategoria() {
-        return fkCategoria;
-    }
-
-    public void setFkCategoria(int fkCategoria) {
-        this.fkCategoria = fkCategoria;
     }
 
     public String getLeyDatos() {
@@ -148,23 +147,11 @@ public class Alumno extends Persona {
         this.certificaEps = certificaEps;
     }
 
-    public boolean isEstadoAlumno() {
-        return estadoAlumno;
+    public boolean isEstado_alumno() {
+        return estado_alumno;
     }
 
-    public void setEstadoAlumno(boolean estadoAlumno) {
-        this.estadoAlumno = estadoAlumno;
+    public void setEstado_alumno(boolean estado_alumno) {
+        this.estado_alumno = estado_alumno;
     }
-    
-    
-    
-    
-    
-    
-  
-   
-
-   
-    
-    
 }

@@ -19,7 +19,6 @@ import modelo.Personal_t;
 @ManagedBean
 @SessionScoped
 public class PersonalBeen implements Serializable {
-
     Personal_t personal = new Personal_t();
 
     public Personal_t getPersonal() {
@@ -32,12 +31,7 @@ public class PersonalBeen implements Serializable {
 
     public void autenticar() throws Exception {
         try (Connection con = ConnBD.conectar()) {
-            String sql = "SELECT "
-                    + "p.id, p.id_persona, p.tipo_id, p.nom1_persona, p.nom2_persona, p.ape1_persona, p.ape2_persona, "
-                    + "p.fecha_nacimiento, p.edad_persona, p.direc_persona, p.tel_persona, p.email_persona, p.fk_genero, "
-                    + "p.fk_eps, p.fk_rh, pt.fk_persona, pt.contrasena, pt.fk_tipo_personal, pt.persona_activa, "
-                    + "tp.nom_tipo_per "
-                    + "FROM persona p "
+            String sql = "SELECT * FROM persona p "
                     + "INNER JOIN personal_t pt ON p.id = pt.fk_persona "
                     + "INNER JOIN tipo_personal tp ON pt.fk_tipo_personal = tp.idtipopersonal "
                     + "WHERE p.id_persona = ? AND pt.contrasena = ?";
@@ -69,11 +63,12 @@ public class PersonalBeen implements Serializable {
                 }
             } else {
                 FacesContext.getCurrentInstance().addMessage(null,
-                        new FacesMessage(FacesMessage.SEVERITY_WARN, "Aviso", "Id de Usuario y/o Contraseña no válidos"));
+                    new FacesMessage(FacesMessage.SEVERITY_WARN, "Aviso", "Id de Usuario y/o Contraseña no válidos"));
             }
         } catch (SQLException | IOException e) {
+            
             FacesContext.getCurrentInstance().addMessage(null,
-                    new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Error en Conexión a Base de Datos"));
+                new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Error en Conexión a Base de Datos"));
         }
     }
 
