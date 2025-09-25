@@ -9,8 +9,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title><ui:insert name="title">Entrenador platilla</ui:insert></title>
 
+        <ui:insert name="estilos"/>
         <link rel="stylesheet" href="#{request.contextPath}/resources/css/plantilla.css"/>
-        <link rel="stylesheet" href="#{request.contextPath}/resources/css/entrenador.css"/>
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet" />
@@ -24,8 +24,8 @@
         
         <div class="grid-container">
             <header class="navbar navbar-expand-lg navbar-dark">
-                <a href="/atsaNet/InicioUsuario">
-                    <img src="resources/img/logo_club.png" style="width: 200px;" alt="Logo del club"/>
+                <a href="#{request.contextPath}/faces/admi.xhtml">
+                    <img src="#{request.contextPath}/resources/img/logo_club.png" style="width: 200px;" alt="Logo del club"/>
                 </a>
 
                 <!-- Menú hamburguesa para móvil -->
@@ -40,21 +40,21 @@
                         <li class="nav-item">
                             <a class="nav-link text-white fw-bold">
                                 <h:form>
-                                    <h:commandButton class="nav-link text-white fw-bold" style="background: transparent; border: transparent" value="Alumnos" action="/alumnos/index"/>
+                                    <h:commandButton class="nav-link text-white fw-bold" style="background: transparent; border: transparent" value="Alumnos" action="/alumnos/aEntrenador?faces-redirect=true"/>
                                 </h:form>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white fw-bold">
                                 <h:form>
-                                    <h:commandButton class="nav-link text-white fw-bold" style="background: transparent; border: transparent" value="Entrenamientos y Objetivos" action="/entrenamientos/index"/>
+                                    <h:commandButton class="nav-link text-white fw-bold" style="background: transparent; border: transparent" value="Entrenamientos y Objetivos" action="/entrenamientos/index?faces-redirect=true"/>
                                 </h:form>
                             </a> 
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white fw-bold">
                                 <h:form>
-                                    <h:commandButton class="nav-link text-white fw-bold" style="background: transparent; border: transparent" value="Sesión de Entrenamiento" action="/sesionEntre/index"/>
+                                    <h:commandButton class="nav-link text-white fw-bold" style="background: transparent; border: transparent" value="Sesión de Entrenamiento" action="/sesionEntre/index?faces-redirect=true"/>
                                 </h:form>
                             </a> 
                         </li>
@@ -93,7 +93,7 @@
             <ui:insert name="script"/>
         </div>
         
-        <ui:insert name="script"/>
+        <ui:insert name="js"/>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     </h:body>

@@ -65,8 +65,7 @@ public class PersonalBeen implements Serializable {
                 FacesContext.getCurrentInstance().addMessage(null,
                     new FacesMessage(FacesMessage.SEVERITY_WARN, "Aviso", "Id de Usuario y/o Contraseña no válidos"));
             }
-        } catch (SQLException | IOException e) {
-            
+        } catch (SQLException | IOException e) {  
             FacesContext.getCurrentInstance().addMessage(null,
                 new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "Error en Conexión a Base de Datos"));
         }
@@ -75,7 +74,8 @@ public class PersonalBeen implements Serializable {
     public void cerrarSesion() {
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().clear();
         try {
-            FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+            String contextPath = FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath();
+            FacesContext.getCurrentInstance().getExternalContext().redirect(contextPath + "/faces/index.xhtml?faces-redirect=true");
         } catch (IOException ex) {
         }
     }
@@ -85,7 +85,8 @@ public class PersonalBeen implements Serializable {
 
         if (nom == null) {
             try {
-                FacesContext.getCurrentInstance().getExternalContext().redirect("noacceso.xhtml");
+                String contextPath = FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath();
+                FacesContext.getCurrentInstance().getExternalContext().redirect(contextPath + "/faces/index.xhtml?faces-redirect=true");
             } catch (IOException ex) {
             }
         }

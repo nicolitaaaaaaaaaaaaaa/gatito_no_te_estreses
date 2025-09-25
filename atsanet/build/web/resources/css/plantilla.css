@@ -34,8 +34,6 @@ body {
         grid-area: contenido;
         background: #f4f6fb;
         color: white;
-        display: flex;
-        justify-content: center;
         min-height: 70vh;
     }
 

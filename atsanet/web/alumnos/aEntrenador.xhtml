@@ -1,0 +1,538 @@
+<ui:composition template="/templates/entrenador.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="title">Gestion matricula</ui:define>
+
+    <ui:define name="estilos">
+        <link rel="stylesheet" href="#{request.contextPath}/resources/css/matricula.css"/>
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="grid-main">
+            <f:event type="preRenderView" listener="#{alumnoBeen.listarPostu()}"/>
+            <f:event type="preRenderView" listener="#{alumnoBeen.listarMatri()}"/>
+
+            <section class="inicio">
+                <div class="titulo">
+                    <div class="imagen">
+                        <h1>Gestion Matricula</h1>
+                    </div>
+                </div>
+                <div class="menu">
+                    <p data-target="#matricula">Matricula</p>
+                    <p data-target="#categorias">Categoria</p>
+                    <p data-target="#alumno">Alumnos</p>
+                    <p data-target="#posiciones">posiciones</p>
+                </div>
+            </section>
+            <section class="contenido">
+                <div data-content="" id="matricula" class="active">
+                    <div class="descripcion">
+                        <h3>📒Alumnos matriculados</h3>
+                        <div class="line"></div>
+                    </div>
+                    <section class="tabla-alumnos">
+                        <h4>📖 Todos los alumnos</h4>
+                        
+                        <h:form> 
+                            <h:dataTable class="table table-responsive table-primary table-striped" value="#{alumnoBeen.lstMatricula}" var="matricula" border="3">
+                                <h:column>
+                                    <f:facet name="header">Id</f:facet>
+                                    <h:outputLabel value="#{matricula.id_persona}"/>
+                                </h:column>
+                                
+                                <h:column>
+                                    <f:facet name="header">Nombre</f:facet>
+                                    <h:outputLabel value="#{matricula.nom1_persona} "/>
+                                    <h:outputLabel value="#{matricula.nom2_persona}"/>
+                                </h:column>
+                                
+                                <h.column>
+                                    <f:facet name="header">Apellido</f:facet>
+                                    <h:outputLabel value="#{matricula.ape1_persona} "/>
+                                    <h:outputLabel value="#{matricula.ape2_persona}"/>
+                                </h.column>
+                                
+                                <h:column>
+                                    <f:facet name="header">Correo</f:facet>
+                                    <h:outputLabel value="#{matricula.email_persona}"/>
+                                </h:column>
+                                
+                                <h:column>
+                                    <f:facet name="header">Estado</f:facet>
+                                    <h:outputLabel style="display: none" value="#{matricula.postulante}"/>
+                                    <h:outputText value="#{alumnoBeen.estado(matricula)}"/>
+                                </h:column>
+                                
+                                <h:column>
+                                    <f:facet name="header">categoria</f:facet>
+                                    <h:outputLabel value="#{matricula.matricula.fk_categoria}"/>
+                                </h:column>
+                            </h:dataTable>
+                        </h:form>
+ 
+                    </section>
+                    <section class="buscar-alumno">
+                        <h4>🔎Buscar Alumno</h4>
+                        
+                        <h:form>
+                            <h:outputLabel class="form-label" value="Escribe el numero de identidad del estudiante"/>
+                            <h:inputText class="form-control" value="#{alumnoBeen.filtroAlumno}" id="buscarAlumno"
+                                         validatorMessage="Ingresa un numero de identidad">
+                            </h:inputText>
+                            <h:message for="buscarAlumno" style="color: red; margin-bottom: 10px;"/>
+                            <br/>
+                            
+                            <h:commandButton class="btn" value="Buscar" action="#{alumnoBeen.filtrarAlumnos()}"/>
+                        </h:form>
+                        
+                        <h:form>
+                            <h:dataTable class="table table-responsive table-primary table-striped" value="#{alumnoBeen.lstAfiltrados}" var="conMatricula" border="3">
+                                <h:column>
+                                    <f:facet name="header">Id</f:facet>
+                                    <h:outputLabel value="#{conMatricula.id_persona}"/>
+                                </h:column>
+                                
+                                <h:column>
+                                    <f:facet name="header">Nombre</f:facet>
+                                    <h:outputLabel value="#{conMatricula.nom1_persona}"/>
+                                    <h:outputLabel value="#{conMatricula.nom2_persona}"/>
+                                </h:column>
+
+                                <h:column>
+                                    <f:facet name="header">categoria</f:facet>
+                                    <h:outputLabel value="#{conMatricula.matricula.fk_categoria}"/>
+                                </h:column>
+                                
+                                <h:column>
+                                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editarAlumno">Editar alumno</button>
+                                </h:column>
+                            </h:dataTable>
+                        </h:form>
+                    </section>
+                </div>
+
+                <div data-content="" id="categorias">
+                    <div class="descripcion">
+                        <h3>👨‍👩‍👧‍👦 Categorias existentes</h3>
+                        <div class="line"></div>
+                    </div>
+                    <section class="buscar-categoria">
+                        <h4>👨‍👩‍👧‍👦 Categorias existentes</h4>
+                        <form class="form formulario-categoria">
+                            <label class="form-label" for="categoria">Elige una categoria de filtro:</label>
+                            <select class="form-select" id="categoria">
+                                <option value="">Elige...</option>
+                                <option value="1">-- Categoria 1(4 a 7) --</option>
+                                <option value="2">-- Categoria 2(8 a 11) --</option>
+                                <option value="3">-- Categoria 3(12 a 15) --</option>
+                                <option value="4">-- Categoria 4(16 a 17) --</option>
+                                <option value="5">-- Categoria 5(18) --</option>
+                            </select>
+
+                            <label class="form-label" for="posicion">Elige una posicion de filtro:</label>
+                            <select id="posicion" class="form-select">
+                                <option value="">Elige...</option>
+                                <option value="Portero">Portero</option>
+                                <option value="Defensa">Defensa</option>
+                                <option value="MedioCampo">Medio Campo</option>
+                                <option value="Delantero">Delantero</option>
+                            </select>
+
+                            <button type="submit" class="btn">Buscar</button>
+                        </form>
+                        <table class="table table-responsive table-primary table-striped">
+                            <thead>
+                                <th>Nombre</th>
+                                <th>Cantidad Alumnos</th>
+                                <th>Posiciones</th>
+                                <th>Alumnos posicion</th>
+                                <th>Alumnos posicion</th>
+                                <th></th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th>
+                                        <button type="button" class="btn" data-bs-toggle="modal"
+                                                data-bs-target="#editarCategoria">Editar categoria</button>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+
+                <div data-content="" id="alumno">
+                    <div class="descripcion">
+                        <h3>💻 Aspirantes inscritos</h3>
+                        <div class="line"></div>
+                    </div>
+                    <section class="tabla-inscripciones">
+                        <h4>🥅 Inscripciones</h4>
+
+                        <!--
+                        <form class="form formulario-categoria">
+                            <label class="form-label" for="edad">Ingresa la edad: </label>
+                            <input type="number" id="edad" placeholder="Escribe aqui.." class="form-control" min="4"
+                                max="18"/>
+                            <label class="form-label" for="genero">Selecciona el genero: </label>
+                            <select class="form-select" id="genero">
+                                <option value="">Elige...</option>
+                                <option value="M">Masculino</option>
+                                <option value="F">Femenino</option>
+                                <option value="NB">No binario</option>
+                            </select>
+                            <button type="submit" id="BuscarInscripciones">Buscar</button>
+                        </form>
+                        -->
+
+                        <h:form>
+                            <h:dataTable class="table table-responsive table-primary table-striped" value="#{alumnoBeen.lstPostulante}" var="alumnos" border="1"> 
+                                <h:column>
+                                    <f:facet name="header">Id</f:facet>
+                                    <h:outputLabel value="#{alumnos.id_persona}"/>
+                                </h:column>
+
+                                <h:column>
+                                    <f:facet name="header">Nombre</f:facet>
+                                    <h:outputLabel value="#{alumnos.nom1_persona}"/>
+                                </h:column>
+
+                                <h:column>
+                                    <f:facet name="header">Apellido</f:facet>
+                                    <h:outputLabel value="#{alumnos.ape1_persona}"/>
+                                </h:column>
+
+                                <h:column>
+                                    <f:facet name="header">Correo</f:facet>
+                                    <h:outputLabel value="#{alumnos.email_persona}"/>
+                                </h:column>
+                                
+                                <h:column>
+                                    <f:facet name="header">Estado</f:facet>
+                                    <h:outputLabel style="display: none" value="#{alumnos.postulante}"/>
+                                    <h:outputText value="#{alumnoBeen.estado(alumnos)}"/>
+                                </h:column>
+
+                                <h:column>
+                                    <f:facet name="header">Opciones</f:facet>
+                                    <button type="button" class="btn" data-bs-toggle="modal"
+                                                data-bs-target="#informacion">ver informacion</button>
+                                </h:column>
+                            </h:dataTable>   
+                        </h:form>
+                    </section>
+                </div>
+            </section>
+        </div>
+
+        <!--Modal de informacion-->
+        <div class="modal fade" id="informacion" tabindex="-1" aria-labelledby="staticBackdropLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content" id="nose">
+                    <div class="modal-body">
+                        <div class="titulo-modal">
+                            <h3>Informacion Aspirante</h3>
+                        </div>
+                        <form class="form formulario-informacion">
+                            <div class="partes">
+                                <h5>Informacion principal:</h5>
+                                <label class="form-label info" for="id_persona">Identificacion: </label>
+                                <p>hola</p>
+                                <label class="form-label info" for="tipo_id">Tipo identificacion: </label>
+                                <p>hola</p>
+                                <label class="form-label info" for="nom1">Primer nombre: </label>
+                                <p>hola</p>
+                                <label class="form-label info" for="nom2">Segundo nombre: </label>
+                                <p>hola</p>
+                                <label class="form-label info" for="ape1">Primer apellido: </label>
+                                <p>hola</p>
+                                <label class="form-label info" for="ape2">segundo apelldio: </label>
+                                <p>hola</p>
+                                <label class="form-label info" for="nacimiento">Fecha nacimiento: </label>
+                                <p>hola</p>
+                                <label class="form-label info" for="edad">edad: </label>
+                                <p>hola</p>
+                                <label class="form-label info" for="genero">Genero: </label>
+                                <p>hola</p>
+                                <label class="form-label info" for="eps">Eps: </label>
+                                <p>hola</p>
+                                <label class="form-label info" for="rh">Rh: </label>
+                                <p>hola</p>
+                            </div>
+                            <div class="partes">
+                                <h5>Informacion de contacto:</h5>
+                                <label class="form-label info" for="direccion">Direccion: </label>
+                                <p>hola</p>
+                                <label class="form-label info" for="telefono">Telefono: </label>
+                                <p>hola</p>
+                                <label class="form-label info" for="email">Email: </label>
+                                <p>hola</p>
+                                <label class="form-label info" for="nom1Acu">Primer nombre acudiente: </label>
+                                <p>hola</p>
+                                <label class="form-label info" for="nom2Acu">Segundo nombre acudiente: </label>
+                                <p>hola</p>
+                                <label class="form-label info" for="ape1Acu">Primer apellido acudiente: </label>
+                                <p>hola</p>
+                                <label class="form-label info" for="ape2Acu">Segundo apellido acudiente: </label>
+                                <p>hola</p>
+                                <label class="form-label info" for="telefonoAcu">Telefono acudiente: </label>
+                                <p>hola</p>
+                                <label class="form-label info" for="parentesco">Parentesco: </label>
+                            </div>
+                            <div class="partes">
+                                <h5>Informacion Fisica:</h5>
+                                <label class="form-label info" for="talla">Talla: </label>
+                                <p>hola</p>
+                                <label class="form-label info" for="calzado">Calzado: </label>
+                                <p>hola</p>
+                                <label class="form-label info" for="piedom">Pie dominante: </label>
+                                <p>hola</p>
+                                <label class="form-label info" for="nomPosicion">Posicion: </label>
+                                <p>hola</p>
+                                <label class="form-label info" for="foto">Foto Aspirante: </label>
+                                <p>hola</p>
+                                <label class="form-label info" for="categoria">Categoria: </label>
+                                <p>hola</p>
+                                <label class="form-label info" for="estado">Estado Aspirante: </label>
+                                <p>hola</p>
+                            </div>
+
+                            <div class="partes">
+                                <h5>Documentos:</h5>
+                                <label class="form-label info" for="archivoDatos">Tratamiento de datos: </label>
+                                <input class="form-control" type="file" id="archivoDatos"/>
+                                <label class="form-label info" for="archivoAutorizacion">Autorizacion medica:
+                                </label>
+                                <input class="form-control" type="file" id="archivoAutorizacion"/>
+                                <label class="form-label info" for="archivoEps">Comprobante eps: </label>
+                                <input class="form-control" type="file" id="archivoEps"/>
+                            </div>
+
+                            <div class="botones">
+                                <button type="submit" id="botonConfirmar"
+                                        class="btn btn-main-action btn-success">Aceptar
+                                    Aspirante</button>
+                                <button type="submit" id="botonRechazar"
+                                        class="btn btn-main-action btn-danger">Rechazar
+                                    Aspirante</button>
+                                <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal fade" id="editarAlumno" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content" id="nose">
+                        <div class="modal-body">
+                            <div class="titulo-modal">
+                                <h3>Editar Categoria</h3>
+                            </div>
+                            <form class="form formulario-alumno">
+                                <div class="partes">
+                                    <h5>Información principal:</h5>
+
+                                    <label for="id_persona">Identificación:</label>
+                                    <input type="text" class="form-control" id="id_persona" name="id_persona"
+                                        placeholder="Ingresa tu identificacion" pattern="\d{9,10}"
+                                        title="Entre 9 y 10 dígitos numéricos"/>
+
+                                    <label for="tipo_id">Tipo de identificación:</label>
+                                    <select class="form-select" id="tipo_id" name="tipo_id">
+                                        <option value="">Elige...</option>
+                                        <option value="RC">RC</option>
+                                        <option value="TI">TI</option>
+                                        <option value="CC">CC</option>
+                                        <option value="PASAPORTE">PAS</option>
+                                    </select>
+
+                                    <label for="nom1">Primer nombre:</label>
+                                    <input type="text" class="form-control" id="nom1" name="nom1"
+                                        placeholder="Ingresa tu nombre" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+"
+                                        title="Solo letras"/>
+
+                                    <label for="nom2">Segundo nombre:</label>
+                                    <input type="text" class="form-control" id="nom2" name="nom2"
+                                        placeholder="Ingresa tu nombre" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\s]*"/>
+
+                                    <label for="ape1">Primer apellido:</label>
+                                    <input type="text" class="form-control" id="ape1" name="ape1"
+                                        placeholder="Ingresa tu apellido" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+"
+                                        title="Solo letras"/>
+
+                                    <label for="ape2">Segundo apellido:</label>
+                                    <input type="text" class="form-control" id="ape2" name="ape2"
+                                        placeholder="Ingresa tu apellido" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\s]*"/>
+
+                                    <label for="nacimiento">Fecha nacimiento (antes de 2005):</label>
+                                    <input type="date" class="form-control" id="nacimiento" name="nacimiento"
+                                        placeholder="Ingresa tu nacimiento" max="2005-12-31"/>
+
+                                    <label for="edad">Edad:</label>
+                                    <input type="number" class="form-control" id="edad" name="edad"/>
+
+                                    <label for="genero">Género:</label>
+                                    <select class="form-control" id="genero" name="genero">
+                                        <option value="">Elige</option>
+                                        <option value="M">Masculino</option>
+                                        <option value="F">Femenino</option>
+                                        <option value="O">Otro</option>
+                                    </select>
+
+                                    <label for="eps">EPS:</label>
+                                    <input type="text" class="form-control" id="eps" name="eps"
+                                        placeholder="Ingresa tu eps"/>
+
+                                    <label for="rh">RH:</label>
+                                    <select class="form-control" id="rh" name="rh">
+                                        <option value="">Elige...</option>
+                                        <option>O+</option>
+                                        <option>O-</option>
+                                        <option>A+</option>
+                                        <option>A-</option>
+                                        <option>B+</option>
+                                        <option>B-</option>
+                                        <option>AB+</option>
+                                        <option>AB-</option>
+                                    </select>
+                                </div>
+
+                                <div class="partes">
+                                    <h5>Información de contacto:</h5>
+
+                                    <label for="direccion">Dirección:</label>
+                                    <input type="text" class="form-control" id="direccion" name="direccion"
+                                        placeholder="Ingresa tu direccion"/>
+
+                                    <label for="telefono">Teléfono:</label>
+                                    <input type="tel" class="form-control" id="telefono" name="telefono"
+                                        placeholder="Ingresa tu telefono" pattern="\d{7,10}"
+                                        title="Entre 7 y 10 números"/>
+
+                                    <label for="email">Email:</label>
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        placeholder="Ingresa tu email"/>
+
+                                    <label for="nom1Acu">Primer nombre acudiente:</label>
+                                    <input type="text" class="form-control" id="nom1Acu" name="nom1Acu"
+                                        placeholder="Ingresa el nombre del acudiente" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+"
+                                        title="Solo letras"/>
+
+                                    <label for="nom2Acu">Segundo nombre acudiente:</label>
+                                    <input type="text" class="form-control" id="nom2Acu" name="nom2Acu"
+                                        placeholder="Ingresa el nombre del acudiente" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\s]*"/>
+
+                                    <label for="ape1Acu">Primer apellido acudiente:</label>
+                                    <input type="text" class="form-control" id="ape1Acu" name="ape1Acu"
+                                        placeholder="Ingresa el apellido del acudiente"
+                                        pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+"/>
+
+                                    <label for="ape2Acu">Segundo apellido acudiente:</label>
+                                    <input type="text" class="form-control" id="ape2Acu" name="ape2Acu"
+                                        placeholder="Ingresa el apellido del acudiente"
+                                        pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\s]*"/>
+
+                                    <label for="telefonoAcu">Teléfono acudiente:</label>
+                                    <input type="tel" class="form-control" id="telefonoAcu" name="telefonoAcu"
+                                        placeholder="Ingresa el telefono del acudiente" pattern="\d{7,10}"/>
+
+                                    <label for="parentesco">Parentesco:</label>
+                                    <input type="text" class="form-control" id="parentesco" name="parentesco"
+                                        placeholder="Ingresa el parentesco" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\s]*"/>
+                                </div>
+
+                                <div class="partes">
+                                    <h5>Información física:</h5>
+                                    <label for="talla">Talla (cm):</label>
+                                    <input type="number" class="form-control" id="talla" name="talla"
+                                        placeholder="Ingresa tu talla" min="50" max="250"/>
+
+                                    <label for="calzado">Calzado:</label>
+                                    <input type="number" class="form-control" id="calzado" name="calzado"
+                                        placeholder="Ingresa tu calzado" min="15" max="50"/>
+
+                                    <label for="piedom">Pie dominante:</label>
+                                    <select id="piedom" name="piedom" class="form-select">
+                                        <option value="">Elige...</option>
+                                        <option value="Diestro">Diestro</option>
+                                        <option value="Zurdo">Zurdo</option>
+                                        <option value="Ambidiestro">Ambidiestro</option>
+                                    </select>
+
+                                    <label for="nomPosicion">Posición:</label>
+                                    <select id="nomPosicion" name="nomPosicion" class="form-select">
+                                        <option value="">Elige...</option>
+                                        <option value="Portero">Portero</option>
+                                        <option value="Defensa">Defensa</option>
+                                        <option value="MedioCampo">Medio Campo</option>
+                                        <option value="Delantero">Delantero</option>
+                                    </select>
+
+                                    <label for="foto">Foto aspirante:</label>
+                                    <input type="file" class="form-control" id="archivoImagen" name="archivoImagen"/>
+
+                                    <label for="categoria">Categoría:</label>
+                                    <select class="form-select" id="categoria">
+                                        <option value="">Elige...</option>
+                                        <option value="1">-- Categoria 1(4 a 7) --</option>
+                                        <option value="2">-- Categoria 2(8 a 11) --</option>
+                                        <option value="3">-- Categoria 3(12 a 15) --</option>
+                                        <option value="4">-- Categoria 4(16 a 17) --</option>
+                                        <option value="5">-- Categoria 5(18) --</option>
+                                    </select>
+
+                                    <label for="estado">Estado aspirante:</label>
+                                    <div class="form-check">
+                                    </div>
+                                </div>
+
+                                <div class="partes">
+                                    <h5>Documentos:</h5>
+
+                                    <label for="archivoDatos">Tratamiento de datos:</label>
+                                    <input type="file" class="form-control" id="archivoDatos" name="archivoDatos"/>
+
+                                    <label for="archivoAutorizacion">Autorización médica:</label>
+                                    <input type="file" class="form-control" id="archivoAutorizacion"
+                                        name="archivoAutorizacion"/>
+
+                                    <label for="archivoEps">Comprobante EPS:</label>
+                                    <input type="file" class="form-control" id="archivoEps" name="archivoEps"/>
+                                </div>
+
+                                <div class="botones">
+                                    <button type="submit" class="btn btn-success">Editar Alumno</button>
+                                    <button type="submit" class="btn btn-danger">Suspender Alumno</button>
+                                </div>
+
+                                <div class="botones">
+                                    <button type="submit" class="btn btn-primary">Activar Alumno</button>
+                                    <button type="submit" class="btn btn-info">Generar carnet</button>
+                                    <button type="button" class="btn btn-warning"
+                                        data-bs-dismiss="modal">Cancelar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </ui:define>
+
+    <ui:define name="js">
+        <script src="#{request.contextPath}/resources/script/matricula.js"></script>
+    </ui:define>       
+</ui:composition>

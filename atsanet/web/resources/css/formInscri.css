@@ -65,7 +65,7 @@ form .secciones {
     padding: 40px;
     display: flex;
     flex-wrap: wrap;
-    align-items: end;
+    align-items: start;
 }
 
 form .col{

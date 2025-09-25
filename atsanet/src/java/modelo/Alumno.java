@@ -3,8 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package modelo;
-
-import java.sql.Date;
+import java.util.Date;
 
 public class Alumno extends Persona {
     private int fk_persona_alumno;
@@ -19,22 +18,34 @@ public class Alumno extends Persona {
     private String autoMedica;
     private String certificaEps;
     private boolean estado_alumno;
+    private boolean postulante;
     
     private Acudiente acudiente;
     private Matricula matricula;
+    private Posicion posicion;
+    private Categoria categoria;
 
+    public Posicion getPosicion() {
+        return posicion;
+    }
+    public void setPosicion(Posicion posicion) {
+        this.posicion = posicion;
+    }
+    public Categoria getCategoria() {
+        return categoria;
+    }
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
     public Matricula getMatricula() {
         return matricula;
     }
-
     public void setMatricula(Matricula matricula) {
         this.matricula = matricula;
     }
-    
     public Acudiente getAcudiente() {
         return acudiente;
     }
-
     public void setAcudiente(Acudiente acudiente) {
         this.acudiente = acudiente;
     }
@@ -42,9 +53,8 @@ public class Alumno extends Persona {
     public Alumno() {
         super();
     }
-     
-    public Alumno(int fk_persona_alumno, String talla, byte calzado, String pie_domi, int fk_acudiente, String parentesco, int fk_posicion, String foto, String leyDatos, String autoMedica, String certificaEps, boolean estado_alumno, int id, int id_persona, String tipo_Id, String nom1_persona, String nom2_persona, String ape1_persona, String ape2_persona, Date fecha_nacimiento, int edad_persona, String direc_persona, long tel_persona, String email_persona, int fk_genero, int fk_eps, int fk_rh) {
-        super(id, id_persona, tipo_Id, nom1_persona, nom2_persona, ape1_persona, ape2_persona, fecha_nacimiento, edad_persona, direc_persona, tel_persona, email_persona, fk_genero, fk_eps, fk_rh);
+
+    public Alumno(int fk_persona_alumno, String talla, byte calzado, String pie_domi, int fk_acudiente, String parentesco, int fk_posicion, String foto, String leyDatos, String autoMedica, String certificaEps, boolean estado_alumno, boolean postulante, Acudiente acudiente, Matricula matricula, Posicion posicion, Categoria categoria) {
         this.fk_persona_alumno = fk_persona_alumno;
         this.talla = talla;
         this.calzado = calzado;
@@ -57,6 +67,32 @@ public class Alumno extends Persona {
         this.autoMedica = autoMedica;
         this.certificaEps = certificaEps;
         this.estado_alumno = estado_alumno;
+        this.postulante = postulante;
+        this.acudiente = acudiente;
+        this.matricula = matricula;
+        this.posicion = posicion;
+        this.categoria = categoria;
+    }
+
+    public Alumno(int fk_persona_alumno, String talla, byte calzado, String pie_domi, int fk_acudiente, String parentesco, int fk_posicion, String foto, String leyDatos, String autoMedica, String certificaEps, boolean estado_alumno, boolean postulante, Acudiente acudiente, Matricula matricula, Posicion posicion, Categoria categoria, int id, int id_persona, String tipo_Id, String nom1_persona, String nom2_persona, String ape1_persona, String ape2_persona, Date fecha_nacimiento, String direc_persona, long tel_persona, String email_persona, int fk_genero, int fk_eps, int fk_rh, Genero genero, Eps eps, Rh rh) {
+        super(id, id_persona, tipo_Id, nom1_persona, nom2_persona, ape1_persona, ape2_persona, fecha_nacimiento, direc_persona, tel_persona, email_persona, fk_genero, fk_eps, fk_rh, genero, eps, rh);
+        this.fk_persona_alumno = fk_persona_alumno;
+        this.talla = talla;
+        this.calzado = calzado;
+        this.pie_domi = pie_domi;
+        this.fk_acudiente = fk_acudiente;
+        this.parentesco = parentesco;
+        this.fk_posicion = fk_posicion;
+        this.foto = foto;
+        this.leyDatos = leyDatos;
+        this.autoMedica = autoMedica;
+        this.certificaEps = certificaEps;
+        this.estado_alumno = estado_alumno;
+        this.postulante = postulante;
+        this.acudiente = acudiente;
+        this.matricula = matricula;
+        this.posicion = posicion;
+        this.categoria = categoria;
     }
 
     public int getFk_persona_alumno() {
@@ -154,4 +190,14 @@ public class Alumno extends Persona {
     public void setEstado_alumno(boolean estado_alumno) {
         this.estado_alumno = estado_alumno;
     }
+
+    public boolean isPostulante() {
+        return postulante;
+    }
+
+    public void setPostulante(boolean postulante) {
+        this.postulante = postulante;
+    }
+
+    
 }

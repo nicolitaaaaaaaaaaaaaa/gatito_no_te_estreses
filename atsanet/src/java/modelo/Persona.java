@@ -1,7 +1,7 @@
 
 package modelo;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Persona {
     private int id;
@@ -12,18 +12,41 @@ public class Persona {
     private String ape1_persona;
     private String ape2_persona;
     private Date fecha_nacimiento;
-    private int edad_persona;
     private String direc_persona;
     private long tel_persona;
     private String email_persona;
     private int fk_genero;
     private int fk_eps;
     private int fk_rh;
+    
+    private Genero genero;
+    private Eps eps;
+    private Rh rh;
 
+    public Genero getGenero() {
+        return genero;
+    }
+    public void setGenero(Genero genero) {
+        this.genero = genero;
+    }
+    public Eps getEps() {
+        return eps;
+    }
+    public void setEps(Eps eps) {
+        this.eps = eps;
+    }
+    public Rh getRh() {
+        return rh;
+    }
+    public void setRh(Rh rh) {
+        this.rh = rh;
+    }
+    
+    
     public Persona() {
     }
 
-    public Persona(int id, int id_persona, String tipo_Id, String nom1_persona, String nom2_persona, String ape1_persona, String ape2_persona, Date fecha_nacimiento, int edad_persona, String direc_persona, long tel_persona, String email_persona, int fk_genero, int fk_eps, int fk_rh) {
+    public Persona(int id, int id_persona, String tipo_Id, String nom1_persona, String nom2_persona, String ape1_persona, String ape2_persona, Date fecha_nacimiento, String direc_persona, long tel_persona, String email_persona, int fk_genero, int fk_eps, int fk_rh, Genero genero, Eps eps, Rh rh) {
         this.id = id;
         this.id_persona = id_persona;
         this.tipo_Id = tipo_Id;
@@ -32,13 +55,15 @@ public class Persona {
         this.ape1_persona = ape1_persona;
         this.ape2_persona = ape2_persona;
         this.fecha_nacimiento = fecha_nacimiento;
-        this.edad_persona = edad_persona;
         this.direc_persona = direc_persona;
         this.tel_persona = tel_persona;
         this.email_persona = email_persona;
         this.fk_genero = fk_genero;
         this.fk_eps = fk_eps;
         this.fk_rh = fk_rh;
+        this.genero = genero;
+        this.eps = eps;
+        this.rh = rh;
     }
 
     public int getId() {
@@ -103,14 +128,6 @@ public class Persona {
 
     public void setFecha_nacimiento(Date fecha_nacimiento) {
         this.fecha_nacimiento = fecha_nacimiento;
-    }
-
-    public int getEdad_persona() {
-        return edad_persona;
-    }
-
-    public void setEdad_persona(int edad_persona) {
-        this.edad_persona = edad_persona;
     }
 
     public String getDirec_persona() {

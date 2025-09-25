@@ -4,8 +4,8 @@
  */
 package modelo;
 
-import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.Date;
 
 
 public class Matricula {
@@ -14,16 +14,26 @@ public class Matricula {
     private int fk_alumno;
     private Date fecha_ven_carnet;
     private int fk_categoria;
+    
+    private Categoria categoria;
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
 
     public Matricula() {
     }
 
-    public Matricula(int idmatricula, Timestamp fecha_inicio, int fk_alumno, Date fecha_ven_carnet, int fk_categoria) {
+    public Matricula(int idmatricula, Timestamp fecha_inicio, int fk_alumno, Date fecha_ven_carnet, int fk_categoria, Categoria categoria) {
         this.idmatricula = idmatricula;
         this.fecha_inicio = fecha_inicio;
         this.fk_alumno = fk_alumno;
         this.fecha_ven_carnet = fecha_ven_carnet;
         this.fk_categoria = fk_categoria;
+        this.categoria = categoria;
     }
 
     public int getIdmatricula() {
@@ -65,10 +75,5 @@ public class Matricula {
     public void setFk_categoria(int fk_categoria) {
         this.fk_categoria = fk_categoria;
     }
-    
-    
 
-   
-    
-    
 }

@@ -4,15 +4,58 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <ui:define name="title">Alumnos postulados </ui:define>
+    <ui:define name="title">Gestion matricula</ui:define>
 
-    <ui:define name="head">
+    <ui:define name="estilos">
         <link rel="stylesheet" href="#{request.contextPath}/resources/css/matricula.css"/>
     </ui:define>
 
     <ui:define name="content">
         <div class="grid-main">
+            <f:event type="preRenderView" listener="#{alumnoBeen.listarPostu()}" />
+            
             <section class="contenido" style="flex-direction: column">
+                <h:form>
+                    <h1>Gestion de matriculas</h1>
+                    <br/>
+                    <h:commandButton value="Nuevo alumno"/>
+                    <br/>
+                    <h:dataTable value="#{alumnoBeen.lstAlumno}" var="alumnos" border="1"> 
+                        <h:column>
+                            <f:facet name="header">Id</f:facet>
+                            <h:outputLabel value="#{alumnos.id}"/>
+                        </h:column>
+                        
+                        <h:column>
+                            <f:facet name="header">Nombre</f:facet>
+                            <h:outputLabel value="#{alumnos.nom1_persona}"/>
+                        </h:column>
+                        
+                        <h:column>
+                            <f:facet name="header">Apellido</f:facet>
+                            <h:outputLabel value="#{alumnos.ape1_persona}"/>
+                        </h:column>
+                        
+                        <h:column>
+                            <f:facet name="header">Correo</f:facet>
+                            <h:outputLabel value="#{alumnos.email_persona}"/>
+                        </h:column>
+                        
+                        <h:column>
+                            <f:facet name="header">Opciones</f:facet>
+                            <h:commandButton value="Ver informacion"/>
+                        </h:column>
+                    </h:dataTable>   
+                </h:form>
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 <h:form>
                     <h1>Gestion de postulantes</h1>
                     <br/>
