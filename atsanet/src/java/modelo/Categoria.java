@@ -5,6 +5,14 @@ public class Categoria {
     private int idcategoria;
     private String nom_categoria;
 
+    public Categoria() {
+    }
+
+    public Categoria(int idcategoria, String nom_categoria) {
+        this.idcategoria = idcategoria;
+        this.nom_categoria = nom_categoria;
+    }
+
     public int getIdcategoria() {
         return idcategoria;
     }

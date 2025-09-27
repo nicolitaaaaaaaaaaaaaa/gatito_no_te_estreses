@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import modelo.Alumno;
+import modelo.Posicion;
 
 @ManagedBean
 @ViewScoped
@@ -22,6 +23,9 @@ public class AlumnoBeen implements Serializable{
     private List<Alumno> lstPostulante = new ArrayList<>();
     private List<Alumno> lstMatricula = new ArrayList<>();
     private List<Alumno> lstAfiltrados = new ArrayList<>();
+    private List<Posicion> lstPosicion = new ArrayList<>();
+    
+    private Posicion posicion = new Posicion();
     private Alumno alumno = new Alumno();
     private String filtroAlumno;
 
@@ -38,9 +42,9 @@ public class AlumnoBeen implements Serializable{
 
     public String estado(Alumno alu){
         if(alu.isPostulante() == false){
-            return "matriculado";
+            return "Matriculado";
         }else{
-            return "No es parte del club";
+            return "Postulante";
         }
     }
     
@@ -54,40 +58,47 @@ public class AlumnoBeen implements Serializable{
         }
     }
     
-    public void agregar(){
+    public void agregarPostulante(){
         alumnoDAO.agregarAspirante(alumno);
     }
     
-    public void listarPostu(){
+    public void listarPostulantes(){
         lstPostulante = alumnoDAO.listarPostulantes();
     }
     
-    public void listarMatri(){
+    public void listarMatriculados(){
         lstMatricula = alumnoDAO.listarMatricula();
-        System.out.print(lstMatricula);
+    }
+    
+    public void listarPosicion(){
+        lstPosicion = alumnoDAO.listarPosiciones();
+    }
+    
+    public void buscarPosicion(Posicion p){
+        posicion = alumnoDAO.buscarPosicion(p);
     }
 
-    public void buscarPostu(Alumno a){
+    public void buscarPostulantes(Alumno a){
         alumno = alumnoDAO.buscarPostulane(a);
     }
     
-    public void buscarMatri(Alumno a){
+    public void buscarAlumno(Alumno a){
         alumno = alumnoDAO.buscarMatriculado(a);  
     }
     
-    public void actualizarMatri(){
+    public void actualizarAlumno(){
         alumnoDAO.actualizarMatriculado(alumno);
     }
     
-    public void suspenderMatri(Alumno a){
+    public void suspenderAlumno(Alumno a){
         alumnoDAO.suspenderMatricula(a);
     }
     
-    public void aceptarPostu(Alumno a){
+    public void aceptarPostulante(Alumno a){
         alumnoDAO.aceptarPostulante(a);
     }
     
-    public void rechazarPostu(Alumno a){
+    public void rechazarPostulante(Alumno a){
         alumnoDAO.rechazarPostulante(a);
     }
     
@@ -132,8 +143,21 @@ public class AlumnoBeen implements Serializable{
     public void setLstAfiltrados(List<Alumno> lstAfiltrados) {
         this.lstAfiltrados = lstAfiltrados;
     }
-    
-    
-    
+
+    public List<Posicion> getLstPosicion() {
+        return lstPosicion;
+    }
+
+    public void setLstPosicion(List<Posicion> lstPosicion) {
+        this.lstPosicion = lstPosicion;
+    }
+
+    public Posicion getPosicion() {
+        return posicion;
+    }
+
+    public void setPosicion(Posicion posicion) {
+        this.posicion = posicion;
+    }
     
 }

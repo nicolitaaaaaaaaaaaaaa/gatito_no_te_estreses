@@ -2,7 +2,8 @@
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                xmlns:f="http://xmlns.jcp.org/jsf/core">
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
 
     <ui:define name="title">Formulario</ui:define>
 
@@ -12,6 +13,11 @@
 
     <ui:define name="content">
         <div class="grid-main">
+            <f:event type="preRenderView" listener="#{personaBeen.listarGenero()}" />
+            <f:event type="preRenderView" listener="#{personaBeen.listarEps()}" />
+            <f:event type="preRenderView" listener="#{personaBeen.listarRh()}" />
+            <f:event type="preRenderView" listener="#{alumnoBeen.listarPosicion()}" />
+
             <section class="presentacion">
                 <h2>Bienvenido al Club Deportivo Atlético Santander.</h2>
                 <hr class="border-5 border-dark opacity-50"/>
@@ -29,113 +35,172 @@
                     <section class="datospersonales">
                         <h2>Datos Personales</h2>
                         <div class="secciones">
-                            <div class="col">
-                                <h:outputLabel class="form-label" value="Número ID"/>
-                                <h:inputText class="form-control" value="#{alumnoBeen.alumno.id}" id="id"
-                                             required="true" requiredMessage="Ingresar un numero de documento"
-                                             validatorMessage="Debe tener entre 6 y 12 numeros, sin números ni caracteres especiales">
-                                    <f:convertNumber integerOnly="true"/>
-                                    <f:validateLongRange minimum="6" maxnum="12"/>
-                                </h:inputText>
-                                <h:message for="id" style="color: red"/>
+                            <div class="row">
+                                <div class="col">
+                                    <p:outputLabel class="form-label" value="Tipo ID" for="tipo_id"/>
+                                    <p:inputText class="form-control" id="tipo_id" value="#{alumnoBeen.alumno.tipo_Id}" required="true"
+                                                 requiredMessage="Ingresa un tipo de identificacion(RC, TI, CC, PAS )"
+                                                 validatorMessage="Debe tener entre 2 y 3 letras, en mayuscula(RC, TI, CC, PAS )">
+                                        <f:validateRegex pattern="((?=.*[A-Z]).{2,3})" />
+                                    </p:inputText>
+                                    <p:message for="tipo_id" style="color: red"/>
+                                </div>
+                                
+                                <div class="col">
+                                    <p:outputLabel class="form-label" value="Número ID" for="id_persona"/>
+                                    <p:inputNumber  id="id_persona" value="#{alumnoBeen.alumno.id_persona}" required="true"
+                                                    requiredMessage="Ingresar un numero de documento"
+                                                    validatorMessage="Debe tener entre 6 y 10 numeros, sin números ni caracteres especiales"
+                                                    minValue="100000" maxValue="1999999999" decimalPlaces="0"/>
+                                    <p:message for="id_persona" style="color: red"/>         
+                                </div>
+
+                                <div class="col">
+                                    <p:outputLabel class="form-label" value="Primer Nombre" for="nom1_persona"/>
+                                    <p:inputText class="form-control" id="nom1_persona" value="#{alumnoBeen.alumno.nom1_persona}" required="true"
+                                                 requiredMessage="Ingresa tu primer nombre"
+                                                 validatorMessage="Debe tener entre 3 y 15 letras, sin números ni caracteres especiales">
+                                        <f:validateRegex pattern="((?=.*[a-z])(?=.*[A-Z]).{4,15})" />
+                                    </p:inputText>
+                                    <p:message for="nom1_persona" style="color: red"/>
+                                </div>
+                            
+
+                                <div class="col">
+                                    <p:outputLabel class="form-label" value="Segundo Nombre" for="nom2_persona"/>
+                                    <p:inputText class="form-control" id="nom2_persona" value="#{alumnoBeen.alumno.nom2_persona}" required="false"
+                                                 validatorMessage="Opcional. Hasta 15 letras">
+                                        <f:validateRegex pattern="((?=.*[a-z])(?=.*[A-Z]).{4,15})" />
+                                    </p:inputText>
+                                    <p:message for="nom2_persona" style="color: red"/>
+                                </div>
                             </div>
 
-                            <div class="col">
-                                <h:outputLabel class="form-label" value="Primer Nombre"/>
-                                <h:inputText class="form-control" value="#{alumnoBeen.alumno.nom1_persona}" id="nom1_persona"
-                                             required="true" requiredMessage="Ingresa un nombre"
-                                             validatorMessage="Debe tener entre 3 y 15 letras, sin números ni caracteres especiales">
-                                    <f:validateRegex pattern="((?=.*[a-z])(?=.*[A-Z]).{4,15})" />
-                                </h:inputText>
-                                <h:message for="nom1_persona" style="color: red"/>  
+                            <div class="row">
+                                <div class="col">
+                                    <p:outputLabel class="form-label" value="Primer Apellido" for="ape1_persona"/>
+                                    <p:inputText class="form-control" id="ape1_persona" value="#{alumnoBeen.alumno.ape1_persona}" required="true"
+                                                 requiredMessage="Ingresa un primer apellido"
+                                                 validatorMessage="Debe tener entre 3 y 15 letras, sin números ni caracteres especiales">
+                                        <f:validateRegex pattern="((?=.*[a-z])(?=.*[A-Z]).{4,15})" />
+                                    </p:inputText>
+                                    <p:message for="ape1_persona" style="color: red"/>
+                                </div>
+                            
+                                <div class="col">
+                                    <p:outputLabel class="form-label" value="Segundo Apellido" for="ape2_persona"/>
+                                    <p:inputText class="form-control" id="ape2_persona" value="#{alumnoBeen.alumno.ape2_persona}" required="false"
+                                                 validatorMessage="Opcional. Hasta 15 letras">
+                                        <f:validateRegex pattern="((?=.*[a-z])(?=.*[A-Z]).{4,15})" />
+                                    </p:inputText>
+                                    <p:message for="ape2_persona" style="color: red"/>
+                                </div>
+                                
+                                <div class="col">
+                                    <p:outputLabel class="form-label" value="Genero" for="fk_genero"/>
+                                    <p:selectOneMenu id="fk_genero" value="#{alumnoBeen.alumno.fk_genero}" required="true"
+                                                     requiredMessage="Debe seleccionar un genero">
+                                        <f:selectItems value="#{personaBeen.lstGenero}" var="gen"
+                                                       itemLabel="#{gen.nom_genero}" itemValue="#{gen.idgenero}"/>
+                                    </p:selectOneMenu>
+                                    <p:message for="fk_genero" style="color: red"/>
+                                </div>
+                                
+                                <div class="col field">
+                                    <p:outputLabel class="form-label" value="Fecha Nacimiento" for="fecha_nacimiento"/>
+                                    <p:datePicker id="fecha_nacimiento" value="#{alumnoBeen.alumno.fecha_nacimiento}" required="true"
+                                                  requiredMessage="Ingresa una fecha"
+                                                  validatorMessage="Debe ingresar una fecha valida" showIcon="true" showOnFocus="false"/>
+                                    <p:message for="fecha_nacimiento" style="color: red"/>
+                                </div>
+                                
+                                <div class="col">
+                                    <p:outputLabel class="form-label" value="Eps" for="fk_eps"/>
+                                    <p:selectOneMenu id="fk_eps" value="#{alumnoBeen.alumno.fk_eps}" required="true"
+                                                     requiredMessage="Debe seleccionar una eps">
+                                        <f:selectItems value="#{personaBeen.lstEps}" var="eps" 
+                                                       itemLabel="#{eps.nom_eps}" itemValue="#{eps.ideps}"/>
+                                    </p:selectOneMenu>
+                                    <p:message for="fk_eps" style="color: red"/>
+                                </div>
+
+                                <div class="col">
+                                    <p:outputLabel class="form-label" value="Dirección domicilio" for="direc_persona"/>
+                                    <p:inputText class="form-control" id="direc_persona" value="#{alumnoBeen.alumno.direc_persona}" required="true"
+                                                 requiredMessage="Ingresa la direccion"
+                                                 validatorMessage="Debe ser una dirección válida con letras, números, espacios y algunos caracteres especiales (#, ., -)">
+                                        <f:validateRegex pattern="((?=.*[A-Z])(?=.*[a-z])(?=.*\d).{10,20})"/>
+                                    </p:inputText>
+                                    <p:message for="direc_persona" style="color: red"/>
+                                </div>
                             </div>
-                            
-                            <div class="col">
-                                <h:outputLabel class="form-label" value="Segundo Nombre"/>
-                                <h:inputText class="form-control" value="#{alumnoBeen.alumno.nom2_persona}" id="nom2_persona"
-                                             required="false" validatorMessage="Opcional. Hasta 15 letras">
-                                    <f:validateRegex pattern="((?=.*[a-z])(?=.*[A-Z]).{4,15})" />
-                                </h:inputText>
-                                <h:message for="nom2_persona" style="color: red"/>
+
+                            <div class="row">
+                                <div class="col">
+                                    <p:outputLabel class="form-label" value="Número Celular" for="tel_persona"/>
+                                    <p:inputNumber id="tel_persona" value="#{alumnoBeen.alumno.tel_persona}" required="true"
+                                                   requiredMessage="Ingresar un numero de celular"
+                                                   validatorMessage="Ingresa un número de celular válido (10 dígitos)"
+                                                   minValue="3" maxValue="3999999999" decimalPlaces="0"/>
+                                    <p:message for="tel_persona" style="color: red"/>    
+                                </div>
+
+                                <div class="col">
+                                    <p:outputLabel class="form-label" value="Correo Electronico" for="email_persona"/>
+                                    <p:inputText class="form-control" id="email_persona" value="#{alumnoBeen.alumno.email_persona}" required="true"
+                                                 requiredMessage="Ingresa un correo electronico"
+                                                 validatorMessage="Debe ser un correo válido con @">
+                                        <f:validateRegex pattern="((?=.*[A-Z])(?=.*[a-z])(?=.*\d).{5,20})"/>
+                                    </p:inputText>
+                                    <p:message for="email_persona" style="color: red"/>
+                                </div>
                             </div>
-                            
-                            <div class="col">
-                                <h:outputLabel class="form-label" value="Primer Apellido"/>
-                                <h:inputText class="form-control" value="#{alumnoBeen.alumno.ape1_persona}" id="ape1_persona"
-                                             required="true" requiredMessage="Ingresa un apellido"
-                                             validatorMessage="Debe tener entre 3 y 15 letras, sin números ni caracteres especiales">
-                                    <f:validateRegex pattern="((?=.*[a-z])(?=.*[A-Z]).{4,15})" />
-                                </h:inputText>
-                                <h:message for="ape1_persona" style="color: red"/>  
-                            </div>
-                            
-                            <div class="col">
-                                <h:outputLabel class="form-label" value="Segundo Apellido"/>
-                                <h:inputText class="form-control" value="#{alumnoBeen.alumno.ape2_persona}" id="ape2_persona"
-                                             required="false" validatorMessage="Opcional. Hasta 15 letras">
-                                    <f:validateRegex pattern="((?=.*[a-z])(?=.*[A-Z]).{4,15})" />
-                                </h:inputText>
-                                <h:message for="ape2_persona" style="color: red"/>
-                            </div>
-                            
-                            <div class="col">
-                                <h:outputLabel class="form-label" value="Dirección domicilio"/>
-                                <h:inputText class="form-control" value="#{alumnoBeen.alumno.direc_persona}" id="direc_persona"
-                                             required="true" requiredMessage="Ingresa la direccion"
-                                             validatorMessage="Debe ser una dirección válida con letras, números, espacios y algunos caracteres especiales (#, ., -)">
-                                    <f:validateRegex pattern="((?=.*[A-Z])(?=.*[a-z])(?=.*\d).{10,20})"/>
-                                </h:inputText>   
-                                <h:message for="direc_persona" style="color: red"/>
-                            </div>
-                            
-                            <div class="col">
-                                <h:outputLabel class="form-label" value="Número Celular"/>
-                                <h:inputText class="form-control" value="#{alumnoBeen.alumno.tel_persona}" id="tel_persona"
-                                             required="true" requiredMessage="Ingresar un numero de celular"
-                                             validatorMessage="Ingresa un número de celular válido (10 dígitos)">
-                                    <f:convertNumber integerOnly="true"/>
-                                    <f:validateLongRange minimum="10" maxnum="10"/>
-                                </h:inputText>
-                                <h:message for="tel_persona" style="color: red"/>
-                            </div>
-                            
-                            <div class="col">
-                                <h:outputLabel class="form-label" value="Correo Electronico"/>
-                                <h:inputText class="form-control" value="#{alumnoBeen.alumno.email_persona}" id="email_persona"
-                                             required="true" requiredMessage="Ingresa un correo electronico"
-                                             validatorMessage="Debe ser un correo válido con @">
-                                    <f:validateRegex pattern="((?=.*[A-Z])(?=.*[a-z])(?=.*\d).{5,20})"/>
-                                </h:inputText>   
-                                <h:message for="email_persona" style="color: red"/>
-                            </div>
-                            
-                            
                         </div>
                     </section>
-                    
+
                     <section class="datosfisicos">
                         <h2>Datos Fisicos</h2>
-
                         <div class="secciones">
-                            <div class="col">
-                                <h:outputLabel class="form-label" value="Talla"/>
-                                <h:inputText class="form-control" value="#{alumnoBeen.alumno.talla}" id="talla"
-                                             required="true" requiredMessage="Ingresar numero de calzado"
-                                             validatorMessage="Ingresa un número valido(2 dígitos)">
-                                    <f:validateRegex pattern="((?=.*[A-Z])(?=.*[a-z]).{1,3})"/>
-                                </h:inputText>
-                                <h:message for="talla" style="color: red"/>
-                            </div>
-                            
-                            <div class="col">
-                                <h:outputLabel class="form-label" value="Calzado"/>
-                                <h:inputText class="form-control" value="#{alumnoBeen.alumno.calzado}" id="calzado"
-                                             required="true" requiredMessage="Ingresa un numero de calzado"
-                                             validatorMessage="Ingresa un número valido(2 dígitos)">
-                                    <f:convertNumber integerOnly="true"/>
-                                    <f:validateLongRange minimum="1" maxnum="2"/>
-                                </h:inputText>   
-                                <h:message for="email_persona" style="color: red"/>
+                            <div class="row">
+                                <div class="col">
+                                    <p:outputLabel class="form-label" value="Tipo de Sangre" for="fk_rh"/>
+                                    
+                                    <p:message for="fk_rh" style="color: red"/>
+                                </div>
+                                
+                                <div class="col">
+                                    <p:outputLabel class="form-label" value="Talla" for="talla"/>
+                                    <p:inputNumber id="talla" value="#{alumnoBeen.alumno.talla}" required="true"
+                                                   requiredMessage="Ingresar numero de calzado"
+                                                   validatorMessage="Ingresa un número valido(2 dígitos)"
+                                                   minValue="00" maxValue="90" decimalPlaces="0"/>
+                                    <p:message for="talla" style="color: red"/> 
+                                </div>
+
+                                <div class="col">
+                                    <p:outputLabel class="form-label" value="Calzado" for="calzado"/>
+                                    <p:inputNumber id="calzado" value="#{alumnoBeen.alumno.calzado}" required="true"
+                                                   requiredMessage="Ingresa un numero de calzado"
+                                                   validatorMessage="Ingresa un número valido(2 dígitos)"
+                                                   minValue="0" maxValue="50" decimalPlaces="0"/>
+                                    <p:message for="calzado" style="color: red"/> 
+                                </div>
+                                
+                                <div class="col">
+                                    <p:outputLabel class="form-label" value="Pie Dominate" for="pie_domi"/>
+                                    <p:inputText class="form-control" id="pie_domi" value="#{alumnoBeen.alumno.pie_domi}" required="true"
+                                                 requiredMessage="Ingresa un pie dominate(Izquierda, Derecha)"
+                                                 validatorMessage="Debe ser un pie dominate">
+                                        <f:validateRegex pattern="((?=.*[A-Z])(?=.*[a-z]).{7,9})"/>
+                                    </p:inputText>
+                                    <p:message for="pie_domi" style="color: red"/>
+                                </div>
+                                
+                                <div class="col">
+                                    <p:outputLabel class="form-label" value="Posicion Cancha" for="fk_posicion"/>
+                                    
+                                    <p:message for="fk_posicion" style="color: red"/>
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -143,100 +208,95 @@
                     <section class="datosacudiente">
                         <h2>Datos Acudiente o de emergencia</h2>
                         <div class="secciones">
-                            <div class="col">
-                                <h:outputLabel class="form-label" value="Número ID"/>
-                                <h:inputText class="form-control" value="#{alumnoBeen.alumno.acudiente.id}" id="id_acu"
-                                             required="true" requiredMessage="Ingresar un numero de documento"
-                                             validatorMessage="Debe tener entre 6 y 12 numeros, sin números ni caracteres especiales">
-                                    <f:convertNumber integerOnly="true"/>
-                                    <f:validateLongRange minnum="6" maxnum="12"/>
-                                </h:inputText>
-                                <h:message for="id_acu" style="color: red"/>
+                            <div class="row">
+                                <div class="col">
+                                    <p:outputLabel class="form-label" value="Número ID" for="id_acu"/>
+                                    <p:inputNumber  id="id_acu" value="#{alumnoBeen.alumno.acudiente.id}" required="true"
+                                                    requiredMessage="Ingresar un numero de documento"
+                                                    validatorMessage="Debe tener entre 6 y 12 numeros, sin números ni caracteres especiales"
+                                                    minValue="000000" maxValue="1999999999" decimalPlaces="0"/>
+                                    <p:message for="id_acu" style="color: red"/>         
+                                </div>
+
+                                <div class="col">
+                                    <p:outputLabel class="form-label" value="Primer Nombre" for="nom1_acudiente"/>
+                                    <p:inputText class="form-control" id="nom1_acudiente" value="#{alumnoBeen.alumno.acudiente.nom1_acudiente}" required="true"
+                                                 requiredMessage="Ingresa tu primer nombre"
+                                                 validatorMessage="Debe tener entre 3 y 15 letras, sin números ni caracteres especiales">
+                                        <f:validateRegex pattern="((?=.*[a-z])(?=.*[A-Z]).{4,15})" />
+                                    </p:inputText>
+                                    <p:message for="nom1_acudiente" style="color: red"/>
+                                </div>
+
+                                <div class="col">
+                                    <p:outputLabel class="form-label" value="Segundo Nombre" for="nom2_acudiente"/>
+                                    <p:inputText class="form-control" id="nom2_acudiente" value="#{alumnoBeen.alumno.acudiente.nom2_acudiente}" required="false"
+                                                 validatorMessage="Opcional. Hasta 15 letras">
+                                        <f:validateRegex pattern="((?=.*[a-z])(?=.*[A-Z]).{4,15})" />
+                                    </p:inputText>
+                                    <p:message for="nom2_acudiente" style="color: red"/>
+                                </div>
                             </div>
 
-                            <div class="col">
-                                <h:outputLabel class="form-label" value="Primer Nombre"/>
-                                <h:inputText class="form-control" value="#{alumnoBeen.alumno.acudiente.nom1_acudiente}" id="nom1_acudiente"
-                                             required="true" requiredMessage="Ingresa un nombre"
-                                             validatorMessage="Debe tener entre 3 y 15 letras, sin números ni caracteres especiales">
-                                    <f:validateRegex pattern="((?=.*[a-z])(?=.*[A-Z]).{4,15})" />
-                                </h:inputText>
-                                <h:message for="nom1_acudiente" style="color: red"/>  
+                            <div class="row">
+                                <div class="col">
+                                    <p:outputLabel class="form-label" value="Primer Apellido" for="ape1_acudiente"/>
+                                    <p:inputText class="form-control" id="ape1_acudiente" value="#{alumnoBeen.alumno.acudiente.ape1_acudiente}" required="true"
+                                                 requiredMessage="Ingresa un apellido"
+                                                 validatorMessage="Debe tener entre 3 y 15 letras, sin números ni caracteres especiales">
+                                        <f:validateRegex pattern="((?=.*[a-z])(?=.*[A-Z]).{4,15})" />
+                                    </p:inputText>
+                                    <p:message for="ape1_acudiente" style="color: red"/>
+                                </div>
+
+                                <div class="col">
+                                    <p:outputLabel class="form-label" value="Segundo Apellido" for="ape2_acudiente"/>
+                                    <p:inputText class="form-control" id="ape2_acudiente" value="#{alumnoBeen.alumno.acudiente.ape2_acudiente}" required="false"
+                                                 validatorMessage="Opcional. Hasta 15 letras">
+                                        <f:validateRegex pattern="((?=.*[a-z])(?=.*[A-Z]).{4,15})" />
+                                    </p:inputText>
+                                    <p:message for="ape2_acudiente" style="color: red"/>
+                                </div>
+
+                                <div class="col">
+                                    <p:outputLabel class="form-label" value="Número Celular" for="tel_acudiente"/>
+                                    <p:inputNumber id="tel_acudiente" value="#{alumnoBeen.alumno.acudiente.tel_acudiente}" required="true"
+                                                   requiredMessage="Ingresar un numero de celular"
+                                                   validatorMessage="Ingresa un número de celular válido (10 dígitos)"
+                                                   minValue="3" maxValue="3999999999" decimalPlaces="0"/>
+                                    <p:message for="tel_acudiente" style="color: red"/>    
+                                </div>
                             </div>
-                            
-                            <div class="col">
-                                <h:outputLabel class="form-label" value="Segundo Nombre"/>
-                                <h:inputText class="form-control" value="#{alumnoBeen.alumno.acudiente.nom2_acudiente}" id="nom2_acudiente"
-                                             required="false" validatorMessage="Opcional. Hasta 15 letras">
-                                    <f:validateRegex pattern="((?=.*[a-z])(?=.*[A-Z]).{4,15})" />
-                                </h:inputText>
-                                <h:message for="nom2_acudiente" style="color: red"/>
+
+                            <div class="row">
+                                <div class="col">
+                                    <p:outputLabel class="form-label" value="Parentesco" for="parentesco"/>
+                                    <p:inputText class="form-control" id="parentesco" value="#{alumnoBeen.alumno.parentesco}" required="true"
+                                                 requiredMessage="Ingresa el parentesco"
+                                                 validatorMessage="Debe tener entre 3 y 15 letras, sin números ni caracteres especiales.">
+                                        <f:validateRegex pattern="((?=.*[a-z])(?=.*[A-Z]).{3,15})" />
+                                    </p:inputText>
+                                    <p:message for="parentesco" style="color: red"/>
+                                </div>
                             </div>
-                            
-                            <div class="col">
-                                <h:outputLabel class="form-label" value="Primer Apellido"/>
-                                <h:inputText class="form-control" value="#{alumnoBeen.alumno.acudiente.ape1_acudiente}" id="ape1_acudiente"
-                                             required="true" requiredMessage="Ingresa un apellido"
-                                             validatorMessage="Debe tener entre 3 y 15 letras, sin números ni caracteres especiales">
-                                    <f:validateRegex pattern="((?=.*[a-z])(?=.*[A-Z]).{4,15})" />
-                                </h:inputText>
-                                <h:message for="ape1_acudiente" style="color: red"/>  
-                            </div>
-                            
-                            <div class="col">
-                                <h:outputLabel class="form-label" value="Segundo Apellido"/>
-                                <h:inputText class="form-control" value="#{alumnoBeen.alumno.acudiente.ape2_acudiente}" id="ape2_acudiente"
-                                             required="false" validatorMessage="Opcional. Hasta 15 letras">
-                                    <f:validateRegex pattern="((?=.*[a-z])(?=.*[A-Z]).{4,15})" />
-                                </h:inputText>
-                                <h:message for="ape2_acudiente" style="color: red"/>
-                            </div>
-                            
-                            <div class="col">
-                                <h:outputLabel class="form-label" value="Número Celular"/>
-                                <h:inputText class="form-control" value="#{alumnoBeen.alumno.acudiente.tel_acudiente}" id="tel_acudiente"
-                                             required="true" requiredMessage="Ingresar un numero de celular"
-                                             validatorMessage="Ingresa un número de celular válido (10 dígitos)">
-                                    <f:convertNumber integerOnly="true"/>
-                                    <f:validateLongRange minimum="10" maxnum="10"/>
-                                </h:inputText>
-                                <h:message for="tel_acudiente" style="color: red"/>
-                            </div>
-                            
-                            <div class="col">
-                                <h:outputLabel class="form-label" value="Parentesco"/>
-                                <h:inputText class="form-control" value="#{alumnoBeen.alumno.parentesco}" id="parentesco"
-                                             required="true" requiredMessage="Ingresa el parentesco"
-                                             validatorMessage="Debe tener entre 3 y 15 letras, sin números ni caracteres especiales.">
-                                    <f:validateRegex pattern="((?=.*[a-z])(?=.*[A-Z]).{3,15})" />
-                                </h:inputText>
-                                <h:message for="parentesco" style="color: red"/>  
-                            </div> 
                         </div>
                     </section>
- 
+
                     <section class="autorizaciones">
                         <h2>Autorizaciones</h2>
                         <div class="secciones">
-                            
-                            
+
                         </div>
                     </section>
-                    
-                    
+
+
                     <section class="confirmar">
-                        <h:commandButton value="Enviar Formulario" actionListener="#{alumnoBeen.agregar()}" action="index" />
+                        <h:commandButton value="Enviar Formulario" action="index" />
                         <h:commandButton value="Cancelar" action="index" />
                     </section>
                 </h:form>
-                
-                
-                
-                
-                
-                
-                
-                
+
+
 
                 <form class="form">
                     <section class="datospersonales">
@@ -256,8 +316,8 @@
                                     Por favor selecciona un tipo de identificación.
                                 </div>
                             </div>
-                            
-                            
+
+
                             <!--  
                             <div class="col">
                                 <label class="form-label" for="txtNumeroID">Número ID</label>
@@ -306,7 +366,7 @@
                                 </div>
                             </div>
                             -->
-                            
+
                             <div class="col">
                                 <label class="form-label" for="txtSexo">Genero</label>
                                 <select class="form-select" id="txtSexo" required="true">
@@ -328,7 +388,7 @@
                                     Selecciona una fecha válida.
                                 </div>
                             </div>
-                            
+
                             <!-- comment
                             <div class="col">
                                 <label class="form-label" for="txtFechaN">Edad</label>
@@ -338,7 +398,7 @@
                                 </div>
                             </div>
                             -->
-                            
+
                             <div class="col">
                                 <label class="form-label" for="txtEps">EPS</label>
                                 <input type="text" id="txtEps" class="form-control" required="true"
@@ -348,7 +408,7 @@
                                     Ingresa una EPS válida (solo letras y espacios, 5 a 15 caracteres).
                                 </div>
                             </div>
-                            
+
                             <!-- comment
                             <div class="col">
                                 <label class="form-label" for="txtDireccion">Dirección domicilio</label>
@@ -452,7 +512,7 @@
                             </div>
                         </div>
                     </section>
-                    
+
                     <section class="datosacudiente">
                         <h2>Datos Acudiente o de emergencia</h2>
                         <div class="secciones">
@@ -469,7 +529,7 @@
                                     Por favor selecciona un tipo de identificación.
                                 </div>
                             </div>
-                            
+
                             <!-- comment
                             <div class="col">
                                 <label class="form-label" for="txtNumeroID">Número ID</label>
@@ -533,10 +593,10 @@
                                     Ingresa un parentesco (3 a 15 letras).
                                 </div>
                             </div>
-                             -->
+                            -->
                         </div>
                     </section>
-                    
+
                     <section class="autorizaciones">
                         <h2>Autorizaciones</h2>
                         <div class="secciones">
@@ -548,7 +608,7 @@
                                     Adjunta la imagen del aspirante.
                                 </div>
                             </div>
-                            
+
                             <div class="col-sm col-auto">
                                 <label class="form-label" for="fileTratamiento">Tratamiento de
                                     datos</label>

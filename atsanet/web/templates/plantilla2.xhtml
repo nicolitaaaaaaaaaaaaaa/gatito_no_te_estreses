@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
     
     <h:head>
         <meta charset="UTF-8"/>
@@ -30,8 +31,8 @@
                     <h1 class="display-5">Atlético Santander</h1>
                     <h5>Club deportivo</h5>
                 </div>
-                <h:form id="iniciosesion">
-                    <h:commandButton style="border: none" id="is" value="Iniciar sesion" action="iniciosesion" />
+                <h:form>
+                    <p:commandButton value="Inicio sesion" styleClass="iniciosesion" action="iniciosesion"/>
                 </h:form>
             </header>
       

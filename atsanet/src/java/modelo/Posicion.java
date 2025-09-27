@@ -6,6 +6,15 @@ public class Posicion {
     private String nom_posicion;
     private String desc_posicion;
 
+    public Posicion() {
+    }
+
+    public Posicion(int idposicion, String nom_posicion, String desc_posicion) {
+        this.idposicion = idposicion;
+        this.nom_posicion = nom_posicion;
+        this.desc_posicion = desc_posicion;
+    }
+
     public int getIdposicion() {
         return idposicion;
     }

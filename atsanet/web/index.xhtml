@@ -1,7 +1,8 @@
 <ui:composition template="/templates/plantilla2.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
-                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
 
     <ui:define name="title">Club Deportivo Atlético Santander</ui:define>
     
@@ -172,9 +173,13 @@
 
                 <div class="row m-5">
                     <h:form id="botones">
+                        <p:commandButton value="Formulario Inscripción" styleClass="btn" action="formAlumno"/>
+                        <p:commandButton value="Formulario Renovacion" styleClass="btn" action="renovacion"/>
+                        <p:commandButton value="Formulario Entrenador" styleClass="btn" action="iniciosesion"/>
+                        
                         <h:commandButton class="btn btn-md btn-danger p-3" id="formAlumno" style="border: none; margin: 20px;" value="Formulario Inscripción"
                                          action="formAlumno" />
-                        <h:commandButton class="btn btn-md btn-danger p-3" id="renovacion" style="border: none; margin: 20px;" value="Renovación Matriculas"
+                        <h:commandButton class="btn btn-md btn-danger p-3" id="renovacion" style="border: none; margin: 20px;" value="Formulario Inscripción"
                                          action="renovacion" />
                         <h:commandButton class="btn btn-md btn-danger p-3" id="formEntrenador" style="border: none; margin: 20px;" value="Formulario Entrenador"
                                          action="formEntre" />

@@ -5,6 +5,14 @@ public class Rh {
     private int idrh;
     private String nom_rh;
 
+    public Rh() {
+    }
+
+    public Rh(int idrh, String nom_rh) {
+        this.idrh = idrh;
+        this.nom_rh = nom_rh;
+    }
+
     public int getIdrh() {
         return idrh;
     }

@@ -23,7 +23,6 @@ public class Alumno extends Persona {
     private Acudiente acudiente;
     private Matricula matricula;
     private Posicion posicion;
-    private Categoria categoria;
 
     public Posicion getPosicion() {
         return posicion;
@@ -31,12 +30,7 @@ public class Alumno extends Persona {
     public void setPosicion(Posicion posicion) {
         this.posicion = posicion;
     }
-    public Categoria getCategoria() {
-        return categoria;
-    }
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
+    
     public Matricula getMatricula() {
         return matricula;
     }
@@ -71,7 +65,6 @@ public class Alumno extends Persona {
         this.acudiente = acudiente;
         this.matricula = matricula;
         this.posicion = posicion;
-        this.categoria = categoria;
     }
 
     public Alumno(int fk_persona_alumno, String talla, byte calzado, String pie_domi, int fk_acudiente, String parentesco, int fk_posicion, String foto, String leyDatos, String autoMedica, String certificaEps, boolean estado_alumno, boolean postulante, Acudiente acudiente, Matricula matricula, Posicion posicion, Categoria categoria, int id, int id_persona, String tipo_Id, String nom1_persona, String nom2_persona, String ape1_persona, String ape2_persona, Date fecha_nacimiento, String direc_persona, long tel_persona, String email_persona, int fk_genero, int fk_eps, int fk_rh, Genero genero, Eps eps, Rh rh) {
@@ -92,7 +85,6 @@ public class Alumno extends Persona {
         this.acudiente = acudiente;
         this.matricula = matricula;
         this.posicion = posicion;
-        this.categoria = categoria;
     }
 
     public int getFk_persona_alumno() {

@@ -5,6 +5,14 @@ public class Eps {
     private int ideps;
     private String nom_eps;
 
+    public Eps() {
+    }
+
+    public Eps(int ideps, String nom_eps) {
+        this.ideps = ideps;
+        this.nom_eps = nom_eps;
+    }
+    
     public int getIdeps() {
         return ideps;
     }

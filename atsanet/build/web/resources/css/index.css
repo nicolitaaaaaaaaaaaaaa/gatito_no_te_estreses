@@ -127,16 +127,25 @@
     flex-wrap: wrap;
     justify-content: center;
 }
-.btn-danger {
+.boton {
     background: linear-gradient(90deg, #ff5252 0%, #ff1744 100%);
-    border: none;
-    border-radius: 20px;
+    width: 180px;
+    height: 60px;
+    margin: 10px;
+    border-radius: 15px;
+    box-shadow: 0 5px 5px rgba(255, 82, 82, 0.10);
+    color: white;
     font-weight: bold;
-    color: #fff;
-    transition: background 0.3s;
+    font-size: 1.1rem;
+    transition: transform 0.5s, background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
 }
 
-.btn-danger:hover {
+.boton:hover {
+    transform: scale(1.05);
     background: linear-gradient(90deg, #ff1744 0%, #ff5252 100%);
 }
 

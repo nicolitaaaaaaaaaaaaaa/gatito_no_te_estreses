@@ -82,7 +82,7 @@ ul li{
     margin-right: 10px;
 }
 
-#iniciosesion{
+.iniciosesion{
     background: linear-gradient(90deg, #ff5252 0%, #ff1744 100%);
     width: 180px;
     height: 60px;
@@ -99,10 +99,11 @@ ul li{
     border: none;
 }
 
-#iniciosesion:hover {
+.iniciosesion:hover{
     transform: scale(1.05);
     background: linear-gradient(90deg, #ff1744 0%, #ff5252 100%);
 }
+
 
 /*
 h2{

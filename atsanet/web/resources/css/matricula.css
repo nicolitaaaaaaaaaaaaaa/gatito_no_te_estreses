@@ -159,7 +159,7 @@
     font-weight: bold;
 }
 
-.tabla-alumnos button {
+.tabla-alumnos .btn {
     padding: 15px;
     height: auto;
     width: auto;
@@ -172,13 +172,13 @@
     transition: all 0.8s;
 }
 
-.tabla-alumnos button:hover {
+.tabla-alumnos .btn:hover {
     background-color: #a582ea;
     box-shadow: 0 0 20px #6fc5ff50;
     transform: scale(1.02);
 }
 
-.tabla-alumnos button:active {
+.tabla-alumnos .btn:active {
     background-color: #273c4a;
     transition: all 0.25s;
     box-shadow: none;
@@ -196,7 +196,7 @@
     font-weight: bold;
 }
 
-.buscar-alumno button {
+.buscar-alumno .btn {
     padding: 15px;
     height: auto;
     width: auto;
@@ -208,20 +208,48 @@
     transition: all 0.8s;
 }
 
-.buscar-alumno button:hover {
+.buscar-alumno .btn:hover {
     background-color: #a582ea;
     box-shadow: 0 0 20px #6fc5ff50;
     transform: scale(1.02);
 }
 
-.buscar-alumno button:active {
+.buscar-alumno .btn:active {
     background-color: #273c4a;
     transition: all 0.25s;
     box-shadow: none;
     transform: scale(0.98);
 }
 
-.buscar-categoria button {
+.iniciosesion{
+    background: linear-gradient(90deg, #ff5252 0%, #ff1744 100%);
+    width: 180px;
+    height: 60px;
+    margin: 10px;
+    border-radius: 15px;
+    box-shadow: 0 5px 5px rgba(255, 82, 82, 0.10);
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: transform 0.5s, background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+.iniciosesion:hover{
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #ff1744 0%, #ff5252 100%);
+}
+
+
+
+
+
+
+
+.buscar-categoria .btn {
     padding: 12px;
     height: auto;
     width: auto;
@@ -234,13 +262,13 @@
     transition: all 0.8s;
 }
 
-.buscar-categoria button:hover {
+.buscar-categoria .btn:hover {
     background-color: #47dcca;
     box-shadow: 0 0 20px #6fc5ff50;
     transform: scale(1.02);
 }
 
-.buscar-categoria button:active {
+.buscar-categoria .btn:active {
     background-color: #273c4a;
     transition: all 0.25s;
     box-shadow: none;
@@ -279,34 +307,33 @@
     font-weight: bold;
 }
 
-.tabla-inscripciones button {
-    margin-top: 20px;
-    padding: 14px;
+.tabla-inscripciones .btn {
+    padding: 10px;
     height: auto;
     width: auto;
-    margin-left: 10px;
     border-radius: 20px;
     border: none;
     background-color: #f0f640;
     color: #0e245c;
     font-weight: Bold;
+    font-size:15px;
     transition: all 0.8s;
 }
 
-.tabla-inscripciones button:hover {
+.tabla-inscripciones .btn:hover {
     background-color: #bad823;
     box-shadow: 0 0 20px #6fc5ff50;
     transform: scale(1.02);
 }
 
-.tabla-inscripciones button:active {
+.tabla-inscripciones .btn:active {
     background-color: #273c4a;
     transition: all 0.25s;
     box-shadow: none;
     transform: scale(0.98);
 }
 
-.tabla-posiciones button {
+.tabla-posiciones .btn {
     margin-top: 20px;
     padding: 12px;
     height: auto;
@@ -320,13 +347,13 @@
     transition: all 0.8s;
 }
 
-.tabla-posiciones button:hover {
+.tabla-posiciones .btn:hover {
     background-color: #33a440;
     box-shadow: 0 0 20px #6fc5ff50;
     transform: scale(1.02);
 }
 
-.tabla-posiciones button:active {
+.tabla-posiciones .btn:active {
     background-color: #273c4a;
     transition: all 0.25s;
     box-shadow: none;
@@ -429,7 +456,7 @@ input:checked+.slider:before {
     font-weight: bold;
 }
 
-.modal .form button {
+.modal .form .btn {
     margin-top: 20px;
     padding: 14px;
     height: auto;
@@ -442,14 +469,14 @@ input:checked+.slider:before {
     transition: all 0.8s;
 }
 
-.modal .form button:hover {
+.modal .form .btn:hover {
     background-color: #eea238;
     color: #333;
     box-shadow: 0 0 20px #6fc5ff50;
     transform: scale(1.02);
 }
 
-.modal .form button:active {
+.modal .form .btn:active {
     background-color: #e3ea10;
     transition: all 0.25s;
     box-shadow: none;
@@ -471,6 +498,16 @@ p{
     color: rgb(13, 13, 13);
     text-align: center;
     font-weight: 700;
-    text-decoration:underline;
+    text-decoration: underline;
 }
 
+
+.tabla-inscripciones .tablas,
+.buscar-alumno .tablas,
+.tabla-alumnos .tablas
+{
+    background: #a9c2e7; 
+    border: 5px solid #c2d3ee; 
+    width:860px; 
+    font-size:17px;
+}

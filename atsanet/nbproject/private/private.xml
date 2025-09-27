@@ -3,36 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/web/templates/administrador.xhtml</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/web/templates/plantilla2.xhtml</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/web/templates/entrenador.xhtml</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/web/admi.xhtml</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/web/entre.xhtml</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/web/resources/css/index.css</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/web/index.xhtml</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/web/alumnos/aAdministrador.xhtml</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/src/java/control/AlumnoBeen.java</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/src/java/modelo/Alumno.java</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/src/java/modelo/Personal_t.java</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/src/java/modelo/Persona.java</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/src/java/control/PersonalBeen.java</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/web/iniciosesion.xhtml</file>
             <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/web/formAlumno.xhtml</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/web/resources/css/formInscri.css</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/web/resources/css/plantilla2.css</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/web/resources/css/matricula.css</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/web/resources/css/plantilla.css</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/web/alumnos/aEntrenador.xhtml</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/src/java/modelo/Matricula.java</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/src/java/dao/AlumnoDAO.java</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/src/java/modelo/Tipo_personal.java</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/src/java/modelo/Genero.java</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/src/java/modelo/Rh.java</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/src/java/modelo/Eps.java</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/src/java/modelo/Posicion.java</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/src/java/modelo/Categoria.java</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/web/resources/css/entrenador.css</file>
-            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/web/resources/css/iniciosesion.css</file>
+            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/src/java/control/PersonaBeen.java</file>
+            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/src/java/control/AlumnoBeen.java</file>
+            <file>file:/C:/Users/nicol/OneDrive/Documentos/GitHub/gatito_no_te_estreses/atsanet/src/java/dao/PersonaDAO.java</file>
         </group>
     </open-files>
 </project-private>

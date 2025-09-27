@@ -65,11 +65,15 @@ form .secciones {
     padding: 40px;
     display: flex;
     flex-wrap: wrap;
-    align-items: start;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 form .col{
-    margin-right: 9px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
 }
 
 form h2 {
@@ -80,7 +84,6 @@ form h2 {
 }
 
 .form-label {
-    width: 180px;
     color: #1976d2;
     font-weight: 700;
     letter-spacing: 0.5px;   
@@ -89,7 +92,7 @@ form h2 {
 .form input,
 select {
     display: flex;
-    align-items: flex;
+    align-items: end;
     border-radius: 13px;
     border: 1px solid #b6e0fe;
     background: #f0eeee;
